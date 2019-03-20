@@ -1,4 +1,3 @@
-.gitignore
 *.sublime-project
 *.sublime-workspace
 todo.txt
@@ -7,12 +6,12 @@ reset-files.bash
 *.tar.gz
 
 *.exe
-src/pivx
-src/pivxd
-src/pivx-cli
-src/pivx-tx
-src/test/test_pivx
-src/qt/test/test_pivx-qt
+src/nmn
+src/nmnd
+src/nmn-cli
+src/nmn-tx
+src/test/test_nmn
+src/qt/test/test_nmn-qt
 
 # autoreconf
 Makefile.in
@@ -38,8 +37,8 @@ confdefs.h
 conftest.cpp
 conftest.err
 libtool
-src/config/pivx-config.h
-src/config/pivx-config.h.in
+src/config/nmn-config.h
+src/config/nmn-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -65,7 +64,7 @@ src/qt/test/moc*.cpp
 *.o
 *.o-*
 *.patch
-.pivx
+.nmn
 *.a
 *.pb.cc
 *.pb.h
@@ -84,13 +83,13 @@ src/qt/test/moc*.cpp
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-pivx-qt
-PIVX-Qt.app
+nmn-qt
+NMN-Qt.app
 background.tiff*
 
 # Unit-tests
 Makefile.test
-pivx-qt_test
+nmn-qt_test
 src/test/buildenv.py
 
 # Resources cpp
@@ -106,7 +105,7 @@ build
 #lcov
 *.gcno
 /*.info
-test_pivx.coverage/
+test_nmn.coverage/
 total.coverage/
 coverage_percent.txt
 
