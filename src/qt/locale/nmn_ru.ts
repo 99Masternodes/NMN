@@ -1953,7 +1953,7 @@ https://www.transifex.com/99Masternodes/NMN-project-translations</translation>
     </message>
     <message>
         <source>Enable zNMN Automint</source>
-        <translation>Невозможно авточеканка  zNMN</translation>
+        <translation>Включить авточеканку  zNMN</translation>
     </message>
     <message>
         <source>Percentage of incoming NMN which get automatically converted to zNMN via Zerocoin Protocol (min: 10%)</source>
@@ -4589,7 +4589,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>Mined</source>
-        <translation>заминированный</translation>
+        <translation>Добытый</translation>
     </message>
     <message>
         <source>Obfuscated</source>

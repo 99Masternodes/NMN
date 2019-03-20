@@ -129,6 +129,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits)
 
     // Check proof of work matches claimed amount
     if (hash > bnTarget) {
+       // printf("block.nBits = %u \n", nBits);
         if (Params().MineBlocksOnDemand())
             return false;
         else

@@ -100,8 +100,8 @@ void MineGenesis(CBlock genesis)
     printf("Searching for genesis block...\n");
     // This will figure out a valid hash and Nonce if you're
     // creating a different genesis block:
-    uint256 hashTarget = ~uint256(0) >> 20;
-    uint256 thash;
+    uint256 hashTarget = ~uint256(0) >> 24;
+    uint256 thash; 
     while(true)
     {
         thash = genesis.GetHash();
@@ -159,7 +159,7 @@ public:
         nLastPOWBlock = 50;
         nModifierUpdateBlock = 615800;
         nZerocoinStartHeight = 863787;
-        nZerocoinStartTime = 1508214600; // October 17, 2017 4:30:00 AM
+        nZerocoinStartTime = 1808214600; // October 17, 2017 4:30:00 AM
         nBlockEnforceSerialRange = 895400; //Enforce serial range starting this block
         nBlockRecalculateAccumulators = 908000; //Trigger a recalculation of accumulators
         nBlockFirstFraudulent = 891737; //First block that bad serials emerged
@@ -190,13 +190,14 @@ public:
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
-        genesis.nVersion = 4;
-        genesis.nTime = 1553040839;
-        genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1077686;
+        genesis.nVersion = 1;
+        genesis.nTime = 1553089133;
+        genesis.nBits = bnProofOfWorkLimit.GetCompact();
+        genesis.nNonce = 1764949;
+    
         //MineGenesis(genesis);
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("00000d4843c149137d00704f3e4a15d15298af1f0af48cf65e51dd10d1fcac42"));
+        assert(hashGenesisBlock == uint256("0000002685acb6c4185756885eaca2af4d5d2a63aeb4276199ea340e2b5bedeb"));
         assert(genesis.hashMerkleRoot == uint256("1b2ef6e2f28be914103a277377ae7729dcd125dfeb8bf97bd5964ba72b6dc39b"));
 
         /*vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "nmn.seed.fuzzbawls.pw"));     // Primary DNS Seeder from Fuzzbawls
@@ -295,11 +296,11 @@ public:
         nRejectOldSporkKey = 1522454400; //!> Reject old spork key after Saturday, March 31, 2018 12:00:00 AM GMT
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1553040839;
-        genesis.nNonce = 1077686;
-
+        genesis.nTime = 1553089133;
+        genesis.nNonce = 1764949;
+    
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("00000d4843c149137d00704f3e4a15d15298af1f0af48cf65e51dd10d1fcac42"));
+        assert(hashGenesisBlock == uint256("0000002685acb6c4185756885eaca2af4d5d2a63aeb4276199ea340e2b5bedeb"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -378,11 +379,11 @@ public:
         nBlockLastGoodCheckpoint = 999999999; //Last valid accumulator checkpoint
 
         //! Modify the regtest genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1553040839;
-        genesis.nNonce = 1077686;
-
+        genesis.nTime = 1553089133;
+        genesis.nNonce = 1764949;
+    
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("00000d4843c149137d00704f3e4a15d15298af1f0af48cf65e51dd10d1fcac42"));
+        assert(hashGenesisBlock == uint256("0000002685acb6c4185756885eaca2af4d5d2a63aeb4276199ea340e2b5bedeb"));
         //assert(hashGenesisBlock == uint256("0x4f023a2120d9127b21bbad01724fdb79b519f593f2a85b60d3d79160ec5f29df"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
