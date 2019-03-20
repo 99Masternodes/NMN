@@ -20,8 +20,8 @@ QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
     unitlist.append(NMN);
-    unitlist.append(mPIV);
-    unitlist.append(uPIV);
+    unitlist.append(mNMN);
+    unitlist.append(uNMN);
     return unitlist;
 }
 
@@ -29,8 +29,8 @@ bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
     case NMN:
-    case mPIV:
-    case uPIV:
+    case mNMN:
+    case uNMN:
         return true;
     default:
         return false;
@@ -42,9 +42,9 @@ QString BitcoinUnits::id(int unit)
     switch (unit) {
     case NMN:
         return QString("nmn");
-    case mPIV:
+    case mNMN:
         return QString("mnmn");
-    case uPIV:
+    case uNMN:
         return QString::fromUtf8("unmn");
     default:
         return QString("???");
@@ -57,21 +57,21 @@ QString BitcoinUnits::name(int unit)
         switch (unit) {
         case NMN:
             return QString("NMN");
-        case mPIV:
-            return QString("mPIV");
-        case uPIV:
-            return QString::fromUtf8("μPIV");
+        case mNMN:
+            return QString("mNMN");
+        case uNMN:
+            return QString::fromUtf8("μNMN");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
         case NMN:
-            return QString("tPIV");
-        case mPIV:
-            return QString("mtPIV");
-        case uPIV:
-            return QString::fromUtf8("μtPIV");
+            return QString("tNMN");
+        case mNMN:
+            return QString("mtNMN");
+        case uNMN:
+            return QString::fromUtf8("μtNMN");
         default:
             return QString("???");
         }
@@ -84,9 +84,9 @@ QString BitcoinUnits::description(int unit)
         switch (unit) {
         case NMN:
             return QString("NMN");
-        case mPIV:
+        case mNMN:
             return QString("Milli-NMN (1 / 1" THIN_SP_UTF8 "000)");
-        case uPIV:
+        case uNMN:
             return QString("Micro-NMN (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
@@ -94,11 +94,11 @@ QString BitcoinUnits::description(int unit)
     } else {
         switch (unit) {
         case NMN:
-            return QString("TestPIVs");
-        case mPIV:
-            return QString("Milli-TestPIV (1 / 1" THIN_SP_UTF8 "000)");
-        case uPIV:
-            return QString("Micro-TestPIV (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            return QString("TestNMNs");
+        case mNMN:
+            return QString("Milli-TestNMN (1 / 1" THIN_SP_UTF8 "000)");
+        case uNMN:
+            return QString("Micro-TestNMN (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -110,9 +110,9 @@ qint64 BitcoinUnits::factor(int unit)
     switch (unit) {
     case NMN:
         return 100000000;
-    case mPIV:
+    case mNMN:
         return 100000;
-    case uPIV:
+    case uNMN:
         return 100;
     default:
         return 100000000;
@@ -124,9 +124,9 @@ int BitcoinUnits::decimals(int unit)
     switch (unit) {
     case NMN:
         return 8;
-    case mPIV:
+    case mNMN:
         return 5;
-    case uPIV:
+    case uNMN:
         return 2;
     default:
         return 0;

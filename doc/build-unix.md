@@ -4,7 +4,7 @@ Some notes on how to build NMN in Unix.
 
 Note
 ---------------------
-Always use absolute paths to configure and compile pivx and the dependencies,
+Always use absolute paths to configure and compile nmn and the dependencies,
 for example, when specifying the path of the dependency:
 
 	../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
@@ -22,7 +22,7 @@ make
 make install # optional
 ```
 
-This will build pivx-qt as well if the dependencies are met.
+This will build nmn-qt as well if the dependencies are met.
 
 Dependencies
 ---------------------
@@ -103,7 +103,7 @@ ZMQ dependencies (provides ZMQ API):
 GUI dependencies:
 
 
-If you want to build pivx-qt, make sure that the required packages for Qt development
+If you want to build nmn-qt, make sure that the required packages for Qt development
 are installed. Qt 5 is necessary to build the GUI.
 If both Qt 4 and Qt 5 are installed, Qt 5 will be used.
 To build without GUI pass `--without-gui`.
@@ -116,7 +116,7 @@ libqrencode (optional) can be installed with:
 
     sudo apt-get install libqrencode-dev
 
-Once these are installed, they will be found by configure and a pivx-qt executable will be
+Once these are installed, they will be found by configure and a nmn-qt executable will be
 built by default.
 
 ### Fedora
@@ -142,7 +142,7 @@ libqrencode (optional) can be installed with:
 
 Notes
 -----
-The release is built with GCC and then "strip pivxd" to strip the debug
+The release is built with GCC and then "strip nmnd" to strip the debug
 symbols, which reduces the executable size by about 90%.
 
 
@@ -173,7 +173,7 @@ It is recommended to use Berkeley DB 4.8. If you have to build it yourself:
 ```bash
 NMN_ROOT=$(pwd)
 
-# Pick some path to install BDB to, here we create a directory within the pivx directory
+# Pick some path to install BDB to, here we create a directory within the nmn directory
 BDB_PREFIX="${NMN_ROOT}/db4"
 mkdir -p $BDB_PREFIX
 
@@ -229,20 +229,20 @@ Hardening enables the following features:
 
     To test that you have built PIE executable, install scanelf, part of paxutils, and use:
 
-    	scanelf -e ./pivxd
+    	scanelf -e ./nmnd
 
     The output should contain:
      TYPE
     ET_DYN
 
 * _Non-executable Stack_: If the stack is executable then trivial stack based buffer overflow exploits are possible if
-    vulnerable buffers are found. By default, pivx should be built with a non-executable stack
+    vulnerable buffers are found. By default, nmn should be built with a non-executable stack
     but if one of the libraries it uses asks for an executable stack or someone makes a mistake
     and uses a compiler extension which requires an executable stack, it will silently build an
     executable without the non-executable stack protection.
 
     To verify that the stack is non-executable after compiling use:
-    `scanelf -e ./pivxd`
+    `scanelf -e ./nmnd`
 
     the output should contain:
 	STK/REL/PTL

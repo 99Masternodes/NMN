@@ -58,8 +58,8 @@ public:
      */
     enum Unit {
         NMN,
-        mPIV,
-        uPIV
+        mNMN,
+        uNMN
     };
 
     enum SeparatorStyle {

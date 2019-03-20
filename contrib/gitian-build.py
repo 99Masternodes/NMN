@@ -57,23 +57,23 @@ def build():
 
     if args.linux:
         print('\nCompiling ' + args.version + ' Linux')
-        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'pivx='+args.commit, '--url', 'pivx='+args.url, '../NMN/contrib/gitian-descriptors/gitian-linux.yml'])
+        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'nmn='+args.commit, '--url', 'nmn='+args.url, '../NMN/contrib/gitian-descriptors/gitian-linux.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-linux', '--destination', '../gitian.sigs/', '../NMN/contrib/gitian-descriptors/gitian-linux.yml'])
-        subprocess.check_call('mv build/out/pivx-*.tar.gz build/out/src/pivx-*.tar.gz ../NMN-binaries/'+args.version, shell=True)
+        subprocess.check_call('mv build/out/nmn-*.tar.gz build/out/src/nmn-*.tar.gz ../NMN-binaries/'+args.version, shell=True)
 
     if args.windows:
         print('\nCompiling ' + args.version + ' Windows')
-        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'pivx='+args.commit, '--url', 'pivx='+args.url, '../NMN/contrib/gitian-descriptors/gitian-win.yml'])
+        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'nmn='+args.commit, '--url', 'nmn='+args.url, '../NMN/contrib/gitian-descriptors/gitian-win.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-win-unsigned', '--destination', '../gitian.sigs/', '../NMN/contrib/gitian-descriptors/gitian-win.yml'])
-        subprocess.check_call('mv build/out/pivx-*-win-unsigned.tar.gz inputs/', shell=True)
-        subprocess.check_call('mv build/out/pivx-*.zip build/out/pivx-*.exe ../NMN-binaries/'+args.version, shell=True)
+        subprocess.check_call('mv build/out/nmn-*-win-unsigned.tar.gz inputs/', shell=True)
+        subprocess.check_call('mv build/out/nmn-*.zip build/out/nmn-*.exe ../NMN-binaries/'+args.version, shell=True)
 
     if args.macos:
         print('\nCompiling ' + args.version + ' MacOS')
-        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'pivx='+args.commit, '--url', 'pivx='+args.url, '../NMN/contrib/gitian-descriptors/gitian-osx.yml'])
+        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'nmn='+args.commit, '--url', 'nmn='+args.url, '../NMN/contrib/gitian-descriptors/gitian-osx.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-osx-unsigned', '--destination', '../gitian.sigs/', '../NMN/contrib/gitian-descriptors/gitian-osx.yml'])
-        subprocess.check_call('mv build/out/pivx-*-osx-unsigned.tar.gz inputs/', shell=True)
-        subprocess.check_call('mv build/out/pivx-*.tar.gz build/out/pivx-*.dmg ../NMN-binaries/'+args.version, shell=True)
+        subprocess.check_call('mv build/out/nmn-*-osx-unsigned.tar.gz inputs/', shell=True)
+        subprocess.check_call('mv build/out/nmn-*.tar.gz build/out/nmn-*.dmg ../NMN-binaries/'+args.version, shell=True)
 
     os.chdir(workdir)
 
@@ -99,15 +99,15 @@ def sign():
         subprocess.check_call('cp inputs/NMN-' + args.version + '-win-unsigned.tar.gz inputs/NMN-win-unsigned.tar.gz', shell=True)
         subprocess.check_call(['bin/gbuild', '-i', '--commit', 'signature='+args.commit, '../NMN/contrib/gitian-descriptors/gitian-win-signer.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-win-signed', '--destination', '../gitian.sigs/', '../NMN/contrib/gitian-descriptors/gitian-win-signer.yml'])
-        subprocess.check_call('mv build/out/pivx-*win64-setup.exe ../NMN-binaries/'+args.version, shell=True)
-        subprocess.check_call('mv build/out/pivx-*win32-setup.exe ../NMN-binaries/'+args.version, shell=True)
+        subprocess.check_call('mv build/out/nmn-*win64-setup.exe ../NMN-binaries/'+args.version, shell=True)
+        subprocess.check_call('mv build/out/nmn-*win32-setup.exe ../NMN-binaries/'+args.version, shell=True)
 
     if args.macos:
         print('\nSigning ' + args.version + ' MacOS')
         subprocess.check_call('cp inputs/NMN-' + args.version + '-osx-unsigned.tar.gz inputs/NMN-osx-unsigned.tar.gz', shell=True)
         subprocess.check_call(['bin/gbuild', '-i', '--commit', 'signature='+args.commit, '../NMN/contrib/gitian-descriptors/gitian-osx-signer.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-osx-signed', '--destination', '../gitian.sigs/', '../NMN/contrib/gitian-descriptors/gitian-osx-signer.yml'])
-        subprocess.check_call('mv build/out/pivx-osx-signed.dmg ../NMN-binaries/'+args.version+'/NMN-'+args.version+'-osx.dmg', shell=True)
+        subprocess.check_call('mv build/out/nmn-osx-signed.dmg ../NMN-binaries/'+args.version+'/NMN-'+args.version+'-osx.dmg', shell=True)
 
     os.chdir(workdir)
 

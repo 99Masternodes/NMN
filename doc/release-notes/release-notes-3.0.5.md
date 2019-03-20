@@ -13,7 +13,7 @@ Please report bugs using the issue tracker at github:
 Mandatory Update
 ==============
 
-NMN Core v3.0.5 is a mandatory update for all users. This release contains various updates/fixes pertaining to the zPIV protocol, supply tracking, block transmission and relaying, as well as usability and quality-of-life updates to the GUI. Users are required to update before block `908000` which is when the accumulators will be refactored. Shortly after that block, zPIV transactions will be enabled. **When zPIV is enabled, autominting will also be enabled.** If you would like to disable automatic conversion of 10% of your PIV balance to zPIV, then you will need to add `enablezeromint=0` to your `pivx.conf` file. For information about where to find your pivx.conf you can visit this link from [NMN Support](https://pivx.freshdesk.com/support/solutions/articles/30000004664-where-are-my-wallet-dat-blockchain-and-configuration-conf-files-located-).
+NMN Core v3.0.5 is a mandatory update for all users. This release contains various updates/fixes pertaining to the zNMN protocol, supply tracking, block transmission and relaying, as well as usability and quality-of-life updates to the GUI. Users are required to update before block `908000` which is when the accumulators will be refactored. Shortly after that block, zNMN transactions will be enabled. **When zNMN is enabled, autominting will also be enabled.** If you would like to disable automatic conversion of 10% of your NMN balance to zNMN, then you will need to add `enablezeromint=0` to your `nmn.conf` file. For information about where to find your nmn.conf you can visit this link from [NMN Support](https://nmn.freshdesk.com/support/solutions/articles/30000004664-where-are-my-wallet-dat-blockchain-and-configuration-conf-files-located-).
 
 Users will have a grace period to update their clients before versions prior to this release are no longer allowed to connect to this (and future) version(s).
 
@@ -21,7 +21,7 @@ Users will have a grace period to update their clients before versions prior to 
 How to Upgrade
 ==============
 
-If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/NMN-Qt (on Mac) or pivxd/pivx-qt (on Linux).
+If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/NMN-Qt (on Mac) or nmnd/nmn-qt (on Linux).
 
 
 Compatibility
@@ -48,23 +48,23 @@ Notable Changes
 
 Accumulator Code Refactor
 ---------------------
-The zPIV accumulator code has undergone a major refactor. Accumulators are one of the most essential components of the zerocoin protocol, and also one of the most computationally expensive parts of the protocol. This refactoring speeds up syncing and spending of zPIV by over 5x. The new code also allows for spending of zPIV with only 2 required mints occurring on the network after your mint has been added, whereas before 3 were required. This refactor allows for lighter resource load and a smoother user experience.
+The zNMN accumulator code has undergone a major refactor. Accumulators are one of the most essential components of the zerocoin protocol, and also one of the most computationally expensive parts of the protocol. This refactoring speeds up syncing and spending of zNMN by over 5x. The new code also allows for spending of zNMN with only 2 required mints occurring on the network after your mint has been added, whereas before 3 were required. This refactor allows for lighter resource load and a smoother user experience.
 
 libzerocoin Exploit Fix
 ---------------------
-zPIV relies on a 3rd party library called libzerocoin. All currencies that utilize the zerocoin protocol use libzerocoin, and many of those currencies have been exposed to an exploit which allowed for the creation of multiple zero-knowledge spending proofs for one single zerocoin mint. The NMN developers were able properly identify the exploit, track down any fraudulent spending proofs, link the fraudulent spending proofs with their one valid proof that they were mutated from, and remove any mints from the accumulators that were derived from the invalid spends. 
+zNMN relies on a 3rd party library called libzerocoin. All currencies that utilize the zerocoin protocol use libzerocoin, and many of those currencies have been exposed to an exploit which allowed for the creation of multiple zero-knowledge spending proofs for one single zerocoin mint. The NMN developers were able properly identify the exploit, track down any fraudulent spending proofs, link the fraudulent spending proofs with their one valid proof that they were mutated from, and remove any mints from the accumulators that were derived from the invalid spends. 
 
-zPIV Maintenance Mode Spork
+zNMN Maintenance Mode Spork
 ---------------------
-Handling the above noted libzerocoin exploit required the NMN team to immediately release a patched wallet to as many users as possible which rejected bad spends and also disabled all zPIV transactions in general. The process of releasing a patched wallet in such a small time frame is frustrating and difficult for all members of the NMN team and especially users of NMN. The NMN developers have added a new spork which allows for zPIV transacting to be turned on/off without having to release a patched wallet. This will allow much smoother operation if any problems occur in the future, and should also allow exchanges and 3rd party services to continue to operate even if zPIV is in maintenance mode.
+Handling the above noted libzerocoin exploit required the NMN team to immediately release a patched wallet to as many users as possible which rejected bad spends and also disabled all zNMN transactions in general. The process of releasing a patched wallet in such a small time frame is frustrating and difficult for all members of the NMN team and especially users of NMN. The NMN developers have added a new spork which allows for zNMN transacting to be turned on/off without having to release a patched wallet. This will allow much smoother operation if any problems occur in the future, and should also allow exchanges and 3rd party services to continue to operate even if zNMN is in maintenance mode.
 
 Money Supply Indexing
 ---------------------
-The exploit in libzerocoin threw off some of the wallet's internal money supply calculations for both the zPIV supply and the PIV supply. User's wallet's will automatically recalculate the supply on block `908001`. User's also have the ability to recalculate supply using the startup flag `reindexmoneysupply`.
+The exploit in libzerocoin threw off some of the wallet's internal money supply calculations for both the zNMN supply and the NMN supply. User's wallet's will automatically recalculate the supply on block `908001`. User's also have the ability to recalculate supply using the startup flag `reindexmoneysupply`.
 
-More Extensive Tracking of zPIV Supply Through RPC
+More Extensive Tracking of zNMN Supply Through RPC
 ---------------------
-More information has been added to the `getinfo` and `getblock` RPC calls, which now display the total zPIV supply as well as the balance for each zPIV accumulator.
+More information has been added to the `getinfo` and `getblock` RPC calls, which now display the total zNMN supply as well as the balance for each zNMN accumulator.
 
 Multisig GUI
 ---------------------
@@ -85,7 +85,7 @@ git merge commit are mentioned.
 
 ### Wallet
 - #308 `bd8a982` [Minting] Clear mempool after invalid block from miner (presstab)
-- #316 `ed192cf` [Minting] Better filtering of zPiv serials in miner. (presstab)
+- #316 `ed192cf` [Minting] Better filtering of zNMN serials in miner. (presstab)
 
 ### GUI
 - #278 `46f4960` [QT] Multisignature GUI (rejectedpromise)
@@ -108,4 +108,4 @@ Thanks to everyone who directly contributed to this release:
 - presstab
 - rejectedpromise
 
-As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/pivx-project-translations/).
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/nmn-project-translations/).

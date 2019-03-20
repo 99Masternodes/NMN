@@ -7,7 +7,7 @@ Please report bugs using the issue tracker at github: <https://github.com/99Mast
 How to Upgrade
 ==============
 
-If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/NMN-Qt (on Mac) or pivxd/pivx-qt (on Linux).
+If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/NMN-Qt (on Mac) or nmnd/nmn-qt (on Linux).
 
 
 Compatibility
@@ -51,4 +51,4 @@ Detailed release notes follow. This overview includes changes that affect behavi
 Thanks to everyone who directly contributed to this release:
 - Fuzzbawls
 
-As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/pivx-project-translations/), the QA team during Testing and the Node hosts supporting our Testnet.
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/nmn-project-translations/), the QA team during Testing and the Node hosts supporting our Testnet.

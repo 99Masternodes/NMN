@@ -1,4 +1,4 @@
-Source: pivx
+Source: nmn
 Section: utils
 Priority: optional
 Maintainer: Jonas Smedegaard <dr@jones.dk> ***TODO***
@@ -22,11 +22,11 @@ Build-Depends: debhelper,
  libqrencode-dev,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
-Homepage: http://www.pivx.org
+Homepage: http://www.nmn.org
 Vcs-Git: git://github.com/99Masternodes/NMN.git
 Vcs-Browser: http://github.com/99Masternodes/NMN
 
-Package: pivxd
+Package: nmnd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
@@ -39,10 +39,10 @@ Description: peer-to-peer network based digital currency - daemon
  Full transaction history is stored locally at each client.  This
  requires 1+ GB of space, slowly growing.
  .
- This package provides the daemon, pivxd, and the CLI tool
- pivx-cli to interact with the daemon.
+ This package provides the daemon, nmnd, and the CLI tool
+ nmn-cli to interact with the daemon.
 
-Package: pivx-qt
+Package: nmn-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
@@ -55,4 +55,4 @@ Description: peer-to-peer network based digital currency - Qt GUI
  Full transaction history is stored locally at each client.  This
  requires 1+ GB of space, slowly growing.
  .
- This package provides Pivx-Qt, a GUI for NMN based on Qt.
+ This package provides NMN-Qt, a GUI for NMN based on Qt.

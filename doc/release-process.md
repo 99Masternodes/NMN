@@ -24,7 +24,7 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/pivx-project/gitian.sigs.git
+    git clone https://github.com/nmn-project/gitian.sigs.git
     git clone https://github.com/99Masternodes/NMN-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     git clone https://github.com/99Masternodes/NMN.git
@@ -50,7 +50,7 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./pivx
+    pushd ./nmn
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.8.0)
     git fetch
@@ -84,7 +84,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../pivx/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../nmn/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -92,7 +92,7 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url pivx=/path/to/pivx,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url nmn=/path/to/nmn,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
@@ -100,47 +100,47 @@ The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 ### Build and sign NMN Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --memory 3000 --commit pivx=v${VERSION} ../pivx/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../pivx/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/pivx-*.tar.gz build/out/src/pivx-*.tar.gz ../
+    ./bin/gbuild --memory 3000 --commit nmn=v${VERSION} ../nmn/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../nmn/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/nmn-*.tar.gz build/out/src/nmn-*.tar.gz ../
 
-    ./bin/gbuild --memory 3000 --commit pivx=v${VERSION} ../pivx/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../pivx/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/pivx-*-win-unsigned.tar.gz inputs/pivx-win-unsigned.tar.gz
-    mv build/out/pivx-*.zip build/out/pivx-*.exe ../
+    ./bin/gbuild --memory 3000 --commit nmn=v${VERSION} ../nmn/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../nmn/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/nmn-*-win-unsigned.tar.gz inputs/nmn-win-unsigned.tar.gz
+    mv build/out/nmn-*.zip build/out/nmn-*.exe ../
 
-    ./bin/gbuild --memory 3000 --commit pivx=v${VERSION} ../pivx/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../pivx/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/pivx-*-osx-unsigned.tar.gz inputs/pivx-osx-unsigned.tar.gz
-    mv build/out/pivx-*.tar.gz build/out/pivx-*.dmg ../
+    ./bin/gbuild --memory 3000 --commit nmn=v${VERSION} ../nmn/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../nmn/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/nmn-*-osx-unsigned.tar.gz inputs/nmn-osx-unsigned.tar.gz
+    mv build/out/nmn-*.tar.gz build/out/nmn-*.dmg ../
 
-    ./bin/gbuild --memory 3000 --commit pivx=v${VERSION} ../pivx/contrib/gitian-descriptors/gitian-aarch64.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-aarch64 --destination ../gitian.sigs/ ../pivx/contrib/gitian-descriptors/gitian-aarch64.yml
-    mv build/out/pivx-*.tar.gz build/out/src/pivx-*.tar.gz ../
+    ./bin/gbuild --memory 3000 --commit nmn=v${VERSION} ../nmn/contrib/gitian-descriptors/gitian-aarch64.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-aarch64 --destination ../gitian.sigs/ ../nmn/contrib/gitian-descriptors/gitian-aarch64.yml
+    mv build/out/nmn-*.tar.gz build/out/src/nmn-*.tar.gz ../
     popd
 
 Build output expected:
 
-  1. source tarball (`pivx-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`pivx-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`pivx-${VERSION}-win[32|64]-setup-unsigned.exe`, `pivx-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`pivx-${VERSION}-osx-unsigned.dmg`, `pivx-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`nmn-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`nmn-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`nmn-${VERSION}-win[32|64]-setup-unsigned.exe`, `nmn-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`nmn-${VERSION}-osx-unsigned.dmg`, `nmn-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import pivx/contrib/gitian-keys/*.pgp
+    gpg --import nmn/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../pivx/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../pivx/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../pivx/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-aarch64 ../pivx/contrib/gitian-descriptors/gitian-aarch64.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../nmn/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../nmn/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../nmn/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-aarch64 ../nmn/contrib/gitian-descriptors/gitian-aarch64.yml
     popd
 
 ### Next steps:
@@ -162,22 +162,22 @@ Codesigner only: Create Windows/OS X detached signatures:
 
 Codesigner only: Sign the osx binary:
 
-    transfer pivx-osx-unsigned.tar.gz to osx for signing
-    tar xf pivx-osx-unsigned.tar.gz
+    transfer nmn-osx-unsigned.tar.gz to osx for signing
+    tar xf nmn-osx-unsigned.tar.gz
     ./detached-sig-create.sh -s "Key ID"
     Enter the keychain password and authorize the signature
     Move signature-osx.tar.gz back to the gitian host
 
 Codesigner only: Sign the windows binaries:
 
-    tar xf pivx-win-unsigned.tar.gz
+    tar xf nmn-win-unsigned.tar.gz
     ./detached-sig-create.sh -key /path/to/codesign.key
     Enter the passphrase for the key when prompted
     signature-win.tar.gz will be created
 
 Codesigner only: Commit the detached codesign payloads:
 
-    cd ~/pivx-detached-sigs
+    cd ~/nmn-detached-sigs
     checkout the appropriate branch for this release series
     rm -rf *
     tar xf signature-osx.tar.gz
@@ -190,25 +190,25 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [pivx-detached-sigs](https://github.com/99Masternodes/NMN-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [nmn-detached-sigs](https://github.com/99Masternodes/NMN-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../pivx/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../pivx/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../pivx/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/pivx-osx-signed.dmg ../pivx-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../nmn/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../nmn/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../nmn/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/nmn-osx-signed.dmg ../nmn-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../pivx/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../pivx/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../pivx/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/pivx-*win64-setup.exe ../pivx-${VERSION}-win64-setup.exe
-    mv build/out/pivx-*win32-setup.exe ../pivx-${VERSION}-win32-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../nmn/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../nmn/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../nmn/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/nmn-*win64-setup.exe ../nmn-${VERSION}-win64-setup.exe
+    mv build/out/nmn-*win32-setup.exe ../nmn-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -230,17 +230,17 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-pivx-${VERSION}-aarch64-linux-gnu.tar.gz
-pivx-${VERSION}-arm-linux-gnueabihf.tar.gz
-pivx-${VERSION}-i686-pc-linux-gnu.tar.gz
-pivx-${VERSION}-x86_64-linux-gnu.tar.gz
-pivx-${VERSION}-osx64.tar.gz
-pivx-${VERSION}-osx.dmg
-pivx-${VERSION}.tar.gz
-pivx-${VERSION}-win32-setup.exe
-pivx-${VERSION}-win32.zip
-pivx-${VERSION}-win64-setup.exe
-pivx-${VERSION}-win64.zip
+nmn-${VERSION}-aarch64-linux-gnu.tar.gz
+nmn-${VERSION}-arm-linux-gnueabihf.tar.gz
+nmn-${VERSION}-i686-pc-linux-gnu.tar.gz
+nmn-${VERSION}-x86_64-linux-gnu.tar.gz
+nmn-${VERSION}-osx64.tar.gz
+nmn-${VERSION}-osx.dmg
+nmn-${VERSION}.tar.gz
+nmn-${VERSION}-win32-setup.exe
+nmn-${VERSION}-win32.zip
+nmn-${VERSION}-win64-setup.exe
+nmn-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
@@ -262,7 +262,7 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
   - bitcointalk announcement thread
 
-  - Optionally twitter, reddit /r/pivx, ... but this will usually sort out itself
+  - Optionally twitter, reddit /r/nmn, ... but this will usually sort out itself
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 

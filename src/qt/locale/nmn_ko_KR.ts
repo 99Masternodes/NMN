@@ -176,8 +176,8 @@
         <translation>지갑 암호화 확인</translation>
     </message>
     <message>
-        <source>NMN will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PIVs from being stolen by malware infecting your computer.</source>
-        <translation>NMN는 이제 암호화 프로세스를 마치기 위해 닫힐것입니다. 지갑을 암호화하더라도 맬웨어로 인한 PIVs 의 도난당하는 것을 완벽하게 보호 할 수는 없습니다.</translation>
+        <source>NMN will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your NMNs from being stolen by malware infecting your computer.</source>
+        <translation>NMN는 이제 암호화 프로세스를 마치기 위해 닫힐것입니다. 지갑을 암호화하더라도 맬웨어로 인한 NMNs 의 도난당하는 것을 완벽하게 보호 할 수는 없습니다.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -185,7 +185,7 @@
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR NMN&lt;/b&gt;!</source>
-        <translation>경고: 지갑 암호화 후 암호를 분실하게 되면 &lt;b&gt;모든 PIV를 잃게 됩니다&lt;/b&gt;!</translation>
+        <translation>경고: 지갑 암호화 후 암호를 분실하게 되면 &lt;b&gt;모든 NMN를 잃게 됩니다&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -1130,8 +1130,8 @@ Address: %4
         <translation>받는 사람이 %1 보다 작은 금액을 받으면 라벨이 빨간색으로 변경됩니다.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 upiv per input.</source>
-        <translation>Can vary +/- %1 upiv per input.</translation>
+        <source>Can vary +/- %1 uNMN per input.</source>
+        <translation>Can vary +/- %1 uNMN per input.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1682,7 +1682,7 @@ Please be patient after clicking import.</source>
     </message>
     <message>
         <source>Add destinations to send NMN to</source>
-        <translation>PIV를 보낼 목적지 추가</translation>
+        <translation>NMN를 보낼 목적지 추가</translation>
     </message>
     <message>
         <source>Add &amp;Destination</source>
@@ -1793,11 +1793,11 @@ Please be patient after clicking import.</source>
     </message>
     <message>
         <source>This option is the quickest and will cost about ~0.025 NMN to anonymize 10000 NMN</source>
-        <translation>이 옵션은 가장 빠르게 전송되며 10000 NMN 익명화에 약 ~0.025 PIV의 비용이 들어갑니다.</translation>
+        <translation>이 옵션은 가장 빠르게 전송되며 10000 NMN 익명화에 약 ~0.025 NMN의 비용이 들어갑니다.</translation>
     </message>
     <message>
         <source>This option is moderately fast and will cost about 0.05 NMN to anonymize 10000 NMN</source>
-        <translation>이 옵션은 중간 정도의 속도로 전송되며 10000 NMN 익명화에 약 0.05 PIV의 비용이 들어갑니다.</translation>
+        <translation>이 옵션은 중간 정도의 속도로 전송되며 10000 NMN 익명화에 약 0.05 NMN의 비용이 들어갑니다.</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
@@ -1949,7 +1949,7 @@ https://www.transifex.com/99Masternodes/NMN-project-translations</translation>
     </message>
     <message>
         <source>Enable automatic minting of NMN units to zNMN</source>
-        <translation>보상받은 PIV를 zNMN로 자동변환 활성화</translation>
+        <translation>보상받은 NMN를 zNMN로 자동변환 활성화</translation>
     </message>
     <message>
         <source>Enable zNMN Automint</source>
@@ -1957,7 +1957,7 @@ https://www.transifex.com/99Masternodes/NMN-project-translations</translation>
     </message>
     <message>
         <source>Percentage of incoming NMN which get automatically converted to zNMN via Zerocoin Protocol (min: 10%)</source>
-        <translation>PIV수신시 자동변환 zNMN 비율 (최소값:10%)</translation>
+        <translation>NMN수신시 자동변환 zNMN 비율 (최소값:10%)</translation>
     </message>
     <message>
         <source>Percentage of autominted zNMN</source>
@@ -1965,7 +1965,7 @@ https://www.transifex.com/99Masternodes/NMN-project-translations</translation>
     </message>
     <message>
         <source>Wait with automatic conversion to Zerocoin until enough NMN for this denomination is available</source>
-        <translation>이 디노미네이션의 PIV가 충분해질 때까지 Zerocoin으로 자동전환은 보류됩니다.</translation>
+        <translation>이 디노미네이션의 NMN가 충분해질 때까지 Zerocoin으로 자동전환은 보류됩니다.</translation>
     </message>
     <message>
         <source>Preferred Automint zNMN Denomination</source>
@@ -2261,7 +2261,7 @@ If AutoMint is enabled this percentage will settle around the configured AutoMin
         <source>AutoMint is currently disabled.
 To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in nmn.conf</source>
         <translation>자동 저장 기능이 현재 사용 중지되었습니다 .
-자동 변환을 사용하려면 pivotx.conf에서 'enablezeromint = 0'에서 'enablezeromint = 1'로 변경하십시오.</translation>
+자동 변환을 사용하려면 NMNotx.conf에서 'enablezeromint = 0'에서 'enablezeromint = 1'로 변경하십시오.</translation>
     </message>
 </context>
 <context>
@@ -2502,7 +2502,7 @@ zNMN는 성명서가 20 개 이상 있고 명칭이 동일하지 않은 2 개 �
     </message>
     <message>
         <source>The NMN address to send the payment to. Creates local payment to yourself when empty.</source>
-        <translation>PIV를 전송할 NMN 주소입니다. 비어있을 때 자신에게 지불할 주소를 생성합니다.</translation>
+        <translation>NMN를 전송할 NMN 주소입니다. 비어있을 때 자신에게 지불할 주소를 생성합니다.</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -3805,12 +3805,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>자동으로 선택됩니다.</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uPIVs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uPIVs in fee,&lt;br /&gt;while "at least" pays 1000 uPIVs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uPIVs로 설정되고,&lt;br /&gt;1000 uPIVs 안에는 최소 "킬로바이트당" 250 uPIVs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
+        <source>If the custom fee is set to 1000 uNMNs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uNMNs in fee,&lt;br /&gt;while "at least" pays 1000 uNMNs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uNMNs로 설정되고,&lt;br /&gt;1000 uNMNs 안에는 최소 "킬로바이트당" 250 uNMNs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uPIVs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uPIVs in fee,&lt;br /&gt;while "total at least" pays 1000 uPIVs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uPIVs로 설정되고,&lt;br /&gt;1000 uPIVs 안에는 전체에서 최소 "킬로바이트당" 250 uPIVs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
+        <source>If the custom fee is set to 1000 uNMNs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uNMNs in fee,&lt;br /&gt;while "total at least" pays 1000 uNMNs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uNMNs로 설정되고,&lt;br /&gt;1000 uNMNs 안에는 전체에서 최소 "킬로바이트당" 250 uNMNs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for NMN transactions than the network can process.</source>
@@ -4551,7 +4551,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>Converted NMN to zNMN</source>
-        <translation>PIV를 zNMN로 변환</translation>
+        <translation>NMN를 zNMN로 변환</translation>
     </message>
     <message>
         <source>Spent zNMN</source>
@@ -4559,7 +4559,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>Received NMN from zNMN</source>
-        <translation>zNMN를 PIV로 받음</translation>
+        <translation>zNMN를 NMN로 받음</translation>
     </message>
     <message>
         <source>Minted Change as zNMN from zNMN Spend</source>
@@ -4567,7 +4567,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>Converted zNMN to NMN</source>
-        <translation>zNMN를 PIV로 변환</translation>
+        <translation>zNMN를 NMN로 변환</translation>
     </message>
     <message>
         <source>Anonymous (zNMN Transaction)</source>
@@ -4786,7 +4786,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>Received NMN from zNMN</source>
-        <translation>zNMN를 PIV로 받음</translation>
+        <translation>zNMN를 NMN로 받음</translation>
     </message>
     <message>
         <source>Zerocoin Spend, Change in zNMN</source>
@@ -4827,7 +4827,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 NMN.</source>
-        <translation>SwiftTX는 아직 높은 값을 전송하는 것을 지원하지 않습니다. 트랜잭션은 현재 %1 PIV로 제한됩니다.</translation>
+        <translation>SwiftTX는 아직 높은 값을 전송하는 것을 지원하지 않습니다. 트랜잭션은 현재 %1 NMN로 제한됩니다.</translation>
     </message>
 </context>
 <context>
@@ -5096,11 +5096,11 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 NMN.</source>
-        <translation>이 트랜잭션를 위해 난독화 표기가 안된 충분한 금액을 찾을 수 없습니다. 10000 PIV과 일치하지 않음.</translation>
+        <translation>이 트랜잭션를 위해 난독화 표기가 안된 충분한 금액을 찾을 수 없습니다. 10000 NMN과 일치하지 않음.</translation>
     </message>
     <message>
         <source>Unable to locate enough funds for this transaction that are not equal 10000 NMN.</source>
-        <translation>트랜잭션에 대한 충분한 금액을 찾을 수 없습니다. 10000 PIV와 같지 않음</translation>
+        <translation>트랜잭션에 대한 충분한 금액을 찾을 수 없습니다. 10000 NMN와 같지 않음</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
