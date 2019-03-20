@@ -23,7 +23,7 @@ packages:
 - "python"
 - "rename"
 remotes:
-- "url": "https://github.com/pivx-project/pivx.git"
+- "url": "https://github.com/99Masternodes/NMN.git"
   "dir": "pivx"
 files: []
 script: |

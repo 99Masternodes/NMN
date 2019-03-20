@@ -1,6 +1,6 @@
 UNIX BUILD NOTES
 ====================
-Some notes on how to build PIVX in Unix.
+Some notes on how to build NMN in Unix.
 
 Note
 ---------------------
@@ -54,7 +54,7 @@ System requirements
 --------------------
 
 C++ compilers are memory-hungry. It is recommended to have at least 1 GB of
-memory available when compiling PIVX Core. With 512MB of memory or less
+memory available when compiling NMN Core. With 512MB of memory or less
 compilation will take much longer due to swap thrashing.
 
 ## Linux Distribution Specific Instructions
@@ -72,7 +72,7 @@ Now, you can either build from self-compiled [depends](/depends/README.md) or in
     sudo apt-get install libssl-dev libgmp-dev libevent-dev libboost-all-dev
 
 **Note:** For Ubuntu versions starting with Bionic (18.04), or Debian versions starting with Stretch, use `libssl1.0-dev`
-above instead of `libssl-dev`. PIVX Core does not support the use of OpenSSL 1.1, though compilation is still possible
+above instead of `libssl-dev`. NMN Core does not support the use of OpenSSL 1.1, though compilation is still possible
 by passing `--with-incompatible-ssl` to configure (NOT RECOMMENDED!).
 
 BerkeleyDB is required for the wallet.
@@ -171,10 +171,10 @@ Berkeley DB
 It is recommended to use Berkeley DB 4.8. If you have to build it yourself:
 
 ```bash
-PIVX_ROOT=$(pwd)
+NMN_ROOT=$(pwd)
 
 # Pick some path to install BDB to, here we create a directory within the pivx directory
-BDB_PREFIX="${PIVX_ROOT}/db4"
+BDB_PREFIX="${NMN_ROOT}/db4"
 mkdir -p $BDB_PREFIX
 
 # Fetch the source and verify that it is not tampered with
@@ -189,8 +189,8 @@ cd db-4.8.30.NC/build_unix/
 ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
 make install
 
-# Configure PIVX Core to use our own-built instance of BDB
-cd $PIVX_ROOT
+# Configure NMN Core to use our own-built instance of BDB
+cd $NMN_ROOT
 ./configure (other args...) LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/"
 ```
 
@@ -207,7 +207,7 @@ If you need to build Boost yourself:
 
 Security
 --------
-To help make your PIVX installation more secure by making certain attacks impossible to
+To help make your NMN installation more secure by making certain attacks impossible to
 exploit even if a vulnerability is found, binaries are hardened by default.
 This can be disabled with:
 
@@ -254,7 +254,7 @@ Disable-wallet mode
 --------------------
 **Note:** This functionality is not yet completely implemented, and compilation using the below option will currently fail.
 
-When the intention is to run only a P2P node without a wallet, PIVX Core may be compiled in
+When the intention is to run only a P2P node without a wallet, NMN Core may be compiled in
 disable-wallet mode with:
 
     ./configure --disable-wallet

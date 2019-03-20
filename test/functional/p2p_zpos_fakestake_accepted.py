@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2019 The PIVX Core developers
+# Copyright (c) 2019 The NMN Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,10 +8,10 @@ Performs the same check as in Test_02 verifying that zPoS forked blocks that sta
 '''
 
 from test_framework.authproxy import JSONRPCException
-from fake_stake.base_test import PIVX_FakeStakeTest
+from fake_stake.base_test import NMN_FakeStakeTest
 from time import sleep
 
-class zPoSFakeStakeAccepted(PIVX_FakeStakeTest):
+class zPoSFakeStakeAccepted(NMN_FakeStakeTest):
 
 
     def set_test_params(self):

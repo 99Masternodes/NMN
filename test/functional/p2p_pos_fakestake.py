@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2019 The PIVX Core developers
+# Copyright (c) 2019 The NMN Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,9 +9,9 @@ Covers the scenario of a PoS block where the coinstake input prevout is already 
 
 from time import sleep
 
-from fake_stake.base_test import PIVX_FakeStakeTest
+from fake_stake.base_test import NMN_FakeStakeTest
 
-class PoSFakeStake(PIVX_FakeStakeTest):
+class PoSFakeStake(NMN_FakeStakeTest):
 
     def run_test(self):
         self.description = "Covers the scenario of a PoS block where the coinstake input prevout is already spent."

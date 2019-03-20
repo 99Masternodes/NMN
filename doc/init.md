@@ -89,7 +89,7 @@ use old versions of Upstart and do not supply the start-stop-daemon uitility.
 Copy pivxd.init to /etc/init.d/pivxd. Test by running "service pivxd start".
 
 Using this script, you can adjust the path and flags to the pivxd program by
-setting the PIVXD and FLAGS environment variables in the file
+setting the NMND and FLAGS environment variables in the file
 /etc/sysconfig/pivxd. You can also use the DAEMONOPTS environment variable here.
 
 5. Auto-respawn

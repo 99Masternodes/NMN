@@ -8,7 +8,7 @@
 # /etc/pivx/pivx.conf
 
 [Unit]
-Description=PIVX daemon
+Description=NMN daemon
 After=network.target
 
 [Service]
