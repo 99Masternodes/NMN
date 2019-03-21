@@ -168,8 +168,6 @@ public:
         nBlockEnforceInvalidUTXO = 902850; //Start enforcing the invalid UTXO's
         nInvalidAmountFiltered = 268200*COIN; //Amount of invalid coins filtered through exchanges, that should be considered valid
         nBlockZerocoinV2 = 1153160; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
-        nEnforceNewSporkKey = 1525158000; //!> Sporks signed after (GMT): Tuesday, May 1, 2018 7:00:00 AM GMT must use the new spork key
-        nRejectOldSporkKey = 1527811200; //!> Fully reject old spork key after (GMT): Friday, June 1, 2018 12:00:00 AM
         nMasternodeCollateral = 1000;
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -209,7 +207,7 @@ public:
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 20);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 52);
-        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 212);
+        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 213);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x2D)(0x25)(0x33).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x21)(0x31)(0x2B).convert_to_container<std::vector<unsigned char> >();
         // 	BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
@@ -227,8 +225,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "0499A7AF4806FC6DE640D23BC5936C29B77ADF2174B4F45492727F897AE63CF8D27B2F05040606E0D14B547916379FA10716E344E745F880EDC037307186AA25B7";
-        strSporkKeyOld = "04B433E6598390C992F4F022F20D3B4CBBE691652EE7C48243B81701CBDB7CC7D7BF0EE09E154E6FCBF2043D65AF4E9E97B89B5DBAF830D83B9B7F469A6C45A717";
+        strSporkKey = "049C17D17495F63CBBA1A3ABA366846BE3A257B04599E0E120F99C521162FBA141CF44E5F71E87B368467AA756F7682083A64E97B81CAB379633603C1CB8374B78";
         strObfuscationPoolDummyAddress = "D87q2gC9j6nNrnzCsg4aY6bHMLsT9nUhEw";
         nStartMasternodePayments = 1403728576; //Wed, 25 Jun 2014 20:36:16 GMT
 
@@ -293,8 +290,6 @@ public:
         nBlockEnforceInvalidUTXO = 9902850; //Start enforcing the invalid UTXO's
         nInvalidAmountFiltered = 0; //Amount of invalid coins filtered through exchanges, that should be considered valid
         nBlockZerocoinV2 = 444020; //!> The block that zerocoin v2 becomes active
-        nEnforceNewSporkKey = 1521604800; //!> Sporks signed after Wednesday, March 21, 2018 4:00:00 AM GMT must use the new spork key
-        nRejectOldSporkKey = 1522454400; //!> Reject old spork key after Saturday, March 31, 2018 12:00:00 AM GMT
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1553168845;
@@ -305,10 +300,6 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-       /* vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "nmn-testnet.seed.fuzzbawls.pw"));
-        vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "nmn-testnet.seed2.fuzzbawls.pw"));
-        vSeeds.push_back(CDNSSeedData("s3v3nh4cks.ddns.net", "s3v3nh4cks.ddns.net"));
-        vSeeds.push_back(CDNSSeedData("88.198.192.110", "88.198.192.110"));*/
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet nmn addresses start with 'x' or 'y'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);  // Testnet nmn script addresses start with '8' or '9'
@@ -331,7 +322,6 @@ public:
 
         nPoolMaxTransactions = 2;
         strSporkKey = "04A8B319388C0F8588D238B9941DC26B26D3F9465266B368A051C5C100F79306A557780101FE2192FE170D7E6DEFDCBEE4C8D533396389C0DAFFDBC842B002243C";
-        strSporkKeyOld = "04348C2F50F90267E64FACC65BFDC9D0EB147D090872FB97ABAE92E9A36E6CA60983E28E741F8E7277B11A7479B626AC115BA31463AC48178A5075C5A9319D4A38";
         strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
         nStartMasternodePayments = 1420837558; //Fri, 09 Jan 2015 21:05:58 GMT
         nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
