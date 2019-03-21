@@ -1671,12 +1671,12 @@ Per favore controlla l'indirizzo e riprova nuovamente.</translation>
         <translation>Configura Offuscamento</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 NMN</source>
-        <translation>Usa 2 masternodi diversi per mescolare fino a 10000 NMN</translation>
+        <source>Use 2 separate masternodes to mix funds up to 1000 NMN</source>
+        <translation>Usa 2 masternodi diversi per mescolare fino a 1000 NMN</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 NMN</source>
-        <translation>Usa 8 masternodi diversi per mixare fino a 10000 NMN</translation>
+        <source>Use 8 separate masternodes to mix funds up to 1000 NMN</source>
+        <translation>Usa 8 masternodi diversi per mixare fino a 1000 NMN</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>

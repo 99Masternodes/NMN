@@ -1780,32 +1780,32 @@ Waas alsjeblieft geduldig nadat u op importeren hebt geklikt.</translation>
         <translation>Selecteer de privacy level.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 NMN</source>
-        <translation>Gebruik 2 aparte masternodes om fondsen te mixen tot 10000 NMN</translation>
+        <source>Use 2 separate masternodes to mix funds up to 1000 NMN</source>
+        <translation>Gebruik 2 aparte masternodes om fondsen te mixen tot 1000 NMN</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 NMN</source>
-        <translation>Gebruik 8 aparte masternodes om fondsen te mixen tot 10000 NMN</translation>
+        <source>Use 8 separate masternodes to mix funds up to 1000 NMN</source>
+        <translation>Gebruik 8 aparte masternodes om fondsen te mixen tot 1000 NMN</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Gebruik 16 aparte masternodes</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 NMN to anonymize 10000 NMN</source>
-        <translation>Deze optie is het snelst en kost ongeveer ~0,025 NMN om 10000 NMN te anonimiseren</translation>
+        <source>This option is the quickest and will cost about ~0.025 NMN to anonymize 1000 NMN</source>
+        <translation>Deze optie is het snelst en kost ongeveer ~0,025 NMN om 1000 NMN te anonimiseren</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 NMN to anonymize 10000 NMN</source>
-        <translation>Deze optie is gematigd snel en kost ongeveer 0,05 NMN om 10000 NMN te anonimiseren</translation>
+        <source>This option is moderately fast and will cost about 0.05 NMN to anonymize 1000 NMN</source>
+        <translation>Deze optie is gematigd snel en kost ongeveer 0,05 NMN om 1000 NMN te anonimiseren</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Dit is de langzaamste en veiligste optie. Het gebruik van maximale anonimiteit kost</translation>
     </message>
     <message>
-        <source>0.1 NMN per 10000 NMN you anonymize.</source>
-        <translation>je anonimiseert 0,1 NMN per 10000 NMN.</translation>
+        <source>0.1 NMN per 1000 NMN you anonymize.</source>
+        <translation>je anonimiseert 0,1 NMN per 1000 NMN.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -5094,12 +5094,12 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Kan niet genoeg verduistering gedenomineerde fondsen voor deze transactie vinden.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 NMN.</source>
-        <translation>Kan niet genoeg verduistering niet gedenomineerde fondsen voor deze transactie vinden die niet gelijk zijn aan 10000 NMN.</translation>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 1000 NMN.</source>
+        <translation>Kan niet genoeg verduistering niet gedenomineerde fondsen voor deze transactie vinden die niet gelijk zijn aan 1000 NMN.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 NMN.</source>
-        <translation>Kan niet genoeg fondsen voor deze transactie vinden die niet gelijk zijn aan 10000 NMN.</translation>
+        <source>Unable to locate enough funds for this transaction that are not equal 1000 NMN.</source>
+        <translation>Kan niet genoeg fondsen voor deze transactie vinden die niet gelijk zijn aan 1000 NMN.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>

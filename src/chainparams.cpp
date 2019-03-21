@@ -100,7 +100,7 @@ void MineGenesis(CBlock genesis)
     printf("Searching for genesis block...\n");
     // This will figure out a valid hash and Nonce if you're
     // creating a different genesis block:
-    uint256 hashTarget = ~uint256(0) >> 24;
+    uint256 hashTarget = ~uint256(0) >> 10;
     uint256 thash; 
     while(true)
     {
@@ -143,20 +143,21 @@ public:
         pchMessageStart[3] = 0xe8;
         vAlertPubKey = ParseHex("0000098d3ba6ba6e7423fa5cbd6a89e0a9a5348f88d332b44a5cb1a8b7ed2c1eaa335fc8dc4f012cb8241cc0bdafd6ca70c5f5448916e4e6f511bcd746ed57dc50");
         nDefaultPort = 15299;
-        bnProofOfWorkLimit = ~uint256(0) >> 20;
+        bnProofOfWorkLimit = ~uint256(0) >> 10;
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 8100; // 75%
         nRejectBlockOutdatedMajority = 10260; // 95%
         nToCheckBlockUpgradeMajority = 10800; // Approximate expected amount of blocks in 7 days (1440*7.5)
         nMinerThreads = 0;
-        nTargetTimespan = 15 * 60; // NMN: 1 minute
-        nTargetSpacing = 1 * 60;  // NMN: 1 minute
+        nTargetTimespan = 5 /* 15 * 60*/; // NMN: 15 minute
+        nTargetSpacing = 1 /* 60*/;  // NMN: 1 minute
         nMaturity = 5;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 21000000 * COIN;
+        nMaxMoneySupply = /*21000000*/ 68000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 50;
+        nLastPOWBlock = 500;
         nModifierUpdateBlock = 615800;
         nZerocoinStartHeight = 863787;
         nZerocoinStartTime = 1808214600; // October 17, 2017 4:30:00 AM
@@ -169,7 +170,7 @@ public:
         nBlockZerocoinV2 = 1153160; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
         nEnforceNewSporkKey = 1525158000; //!> Sporks signed after (GMT): Tuesday, May 1, 2018 7:00:00 AM GMT must use the new spork key
         nRejectOldSporkKey = 1527811200; //!> Fully reject old spork key after (GMT): Friday, June 1, 2018 12:00:00 AM
-
+        nMasternodeCollateral = 1000;
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
          * be spent as it did not originally exist in the database.
@@ -191,13 +192,13 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1553089133;
+        genesis.nTime = 1553168845;
         genesis.nBits = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce = 1764949;
+        genesis.nNonce = 687;
     
         //MineGenesis(genesis);
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0000002685acb6c4185756885eaca2af4d5d2a63aeb4276199ea340e2b5bedeb"));
+        assert(hashGenesisBlock == uint256("002b6e451ad4587f305c223a07df7fa933945646ac7a9f4a65088e8dcdce0c6e"));
         assert(genesis.hashMerkleRoot == uint256("1b2ef6e2f28be914103a277377ae7729dcd125dfeb8bf97bd5964ba72b6dc39b"));
 
         /*vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "nmn.seed.fuzzbawls.pw"));     // Primary DNS Seeder from Fuzzbawls
@@ -296,11 +297,11 @@ public:
         nRejectOldSporkKey = 1522454400; //!> Reject old spork key after Saturday, March 31, 2018 12:00:00 AM GMT
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1553089133;
-        genesis.nNonce = 1764949;
+        genesis.nTime = 1553168845;
+        genesis.nNonce = 687;
     
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0000002685acb6c4185756885eaca2af4d5d2a63aeb4276199ea340e2b5bedeb"));
+        assert(hashGenesisBlock == uint256("002b6e451ad4587f305c223a07df7fa933945646ac7a9f4a65088e8dcdce0c6e"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -379,11 +380,11 @@ public:
         nBlockLastGoodCheckpoint = 999999999; //Last valid accumulator checkpoint
 
         //! Modify the regtest genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1553089133;
-        genesis.nNonce = 1764949;
+        genesis.nTime = 1553168845;
+        genesis.nNonce = 687;
     
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0000002685acb6c4185756885eaca2af4d5d2a63aeb4276199ea340e2b5bedeb"));
+        assert(hashGenesisBlock == uint256("002b6e451ad4587f305c223a07df7fa933945646ac7a9f4a65088e8dcdce0c6e"));
         //assert(hashGenesisBlock == uint256("0x4f023a2120d9127b21bbad01724fdb79b519f593f2a85b60d3d79160ec5f29df"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.

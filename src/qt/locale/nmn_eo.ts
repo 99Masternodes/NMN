@@ -1628,12 +1628,12 @@ Bonvolu kontroku la adreson kaj riprovu</translation>
         <translation>Bonvolu elekti privata nivelo.</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 NMN to anonymize 10000 NMN</source>
-        <translation>Tion opcion estas la plej rapida kaji kostos ~0.025 NMN por anonimigi 10000 NMN</translation>
+        <source>This option is the quickest and will cost about ~0.025 NMN to anonymize 1000 NMN</source>
+        <translation>Tion opcion estas la plej rapida kaji kostos ~0.025 NMN por anonimigi 1000 NMN</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 NMN to anonymize 10000 NMN</source>
-        <translation>Tion opcion estas moderebla rapide kaj kostos ĉirkaŭ 0.05 NMN por anonimigi 10000 NMN</translation>
+        <source>This option is moderately fast and will cost about 0.05 NMN to anonymize 1000 NMN</source>
+        <translation>Tion opcion estas moderebla rapide kaj kostos ĉirkaŭ 0.05 NMN por anonimigi 1000 NMN</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>

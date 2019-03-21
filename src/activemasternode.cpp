@@ -12,7 +12,7 @@
 #include "spork.h"
 
 //
-// Bootup the Masternode, look for a 10000 NMN input and register on the network
+// Bootup the Masternode, look for a nMasternodeCollateral NMN input and register on the network
 //
 void CActiveMasternode::ManageStatus()
 {
@@ -456,7 +456,7 @@ vector<COutput> CActiveMasternode::SelectCoinsMasternode()
 
     // Filter
     BOOST_FOREACH (const COutput& out, vCoins) {
-        if (out.tx->vout[out.i].nValue == 10000 * COIN) { //exactly
+        if (out.tx->vout[out.i].nValue == Params().MasternodeCollateral() * COIN) { //exactly
             filteredCoins.push_back(out);
         }
     }

@@ -1889,17 +1889,6 @@ bool AppInit2()
 // XX42 Remove/refactor code below. Until then provide safe defaults
     nAnonymizeNMNAmount = 2;
 
-//    nLiquidityProvider = GetArg("-liquidityprovider", 0); //0-100
-//    if (nLiquidityProvider != 0) {
-//        obfuScationPool.SetMinBlockSpacing(std::min(nLiquidityProvider, 100) * 15);
-//        fEnableZeromint = true;
-//        nZeromintPercentage = 99999;
-//    }
-//
-//    nAnonymizeNMNAmount = GetArg("-anonymizenmnamount", 0);
-//    if (nAnonymizeNMNAmount > 999999) nAnonymizeNMNAmount = 999999;
-//    if (nAnonymizeNMNAmount < 2) nAnonymizeNMNAmount = 2;
-
     fEnableSwiftTX = GetBoolArg("-enableswifttx", fEnableSwiftTX);
     nSwiftTXDepth = GetArg("-swifttxdepth", nSwiftTXDepth);
     nSwiftTXDepth = std::min(std::max(nSwiftTXDepth, 0), 60);
@@ -1915,25 +1904,14 @@ bool AppInit2()
     LogPrintf("Anonymize NMN Amount %d\n", nAnonymizeNMNAmount);
     LogPrintf("Budget Mode %s\n", strBudgetMode.c_str());
 
-    /* Denominations
 
-       A note about convertability. Within Obfuscation pools, each denomination
-       is convertable to another.
-
-       For example:
-       1NMN+1000 == (.1NMN+100)*10
-       10NMN+10000 == (1NMN+1000)*10
-    */
     obfuScationDenominations.push_back((10000 * COIN) + 10000000);
     obfuScationDenominations.push_back((1000 * COIN) + 1000000);
     obfuScationDenominations.push_back((100 * COIN) + 100000);
     obfuScationDenominations.push_back((10 * COIN) + 10000);
     obfuScationDenominations.push_back((1 * COIN) + 1000);
     obfuScationDenominations.push_back((.1 * COIN) + 100);
-    /* Disabled till we need them
-    obfuScationDenominations.push_back( (.01      * COIN)+10 );
-    obfuScationDenominations.push_back( (.001     * COIN)+1 );
-    */
+
 
     obfuScationPool.InitCollateralAddress();
 

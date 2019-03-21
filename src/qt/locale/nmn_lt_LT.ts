@@ -1750,11 +1750,11 @@ Patikrinkite adresą ir bandykite dar kartą.</translation>
         <translation>Pasirinkite privatumo lygmenį.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 NMN</source>
+        <source>Use 2 separate masternodes to mix funds up to 1000 NMN</source>
         <translation>Naudokite 2 atskirus masternod'us, kad sumaišytumėte lėšas iki 10 000 NMN</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 NMN</source>
+        <source>Use 8 separate masternodes to mix funds up to 1000 NMN</source>
         <translation>Naudokite 8 atskirus masternod'us, kad sumaišytumėte lėšas iki 10 000 NMN</translation>
     </message>
     <message>
@@ -1762,19 +1762,19 @@ Patikrinkite adresą ir bandykite dar kartą.</translation>
         <translation>Naudokite 16 atskirų masternod'ų</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 NMN to anonymize 10000 NMN</source>
-        <translation>Ši parinktis yra greičiausia ir kainuos apie ~0.025 NMN, kad anonimizuotų 10000 NMN</translation>
+        <source>This option is the quickest and will cost about ~0.025 NMN to anonymize 1000 NMN</source>
+        <translation>Ši parinktis yra greičiausia ir kainuos apie ~0.025 NMN, kad anonimizuotų 1000 NMN</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 NMN to anonymize 10000 NMN</source>
-        <translation>Ši parinktis yra vidutiniškai greita ir kainuoja apie 0,05 NMN, kad anonimizuotų 10000 NMN</translation>
+        <source>This option is moderately fast and will cost about 0.05 NMN to anonymize 1000 NMN</source>
+        <translation>Ši parinktis yra vidutiniškai greita ir kainuoja apie 0,05 NMN, kad anonimizuotų 1000 NMN</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Tai yra lėčiausias ir saugiausias variantas. Maksimalus anonimiškumas kainuos.</translation>
     </message>
     <message>
-        <source>0.1 NMN per 10000 NMN you anonymize.</source>
+        <source>0.1 NMN per 1000 NMN you anonymize.</source>
         <translation>0.1 NMN kas 1000 NMN kuriuos anonimizuosite.</translation>
     </message>
     <message>

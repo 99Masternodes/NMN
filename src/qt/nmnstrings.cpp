@@ -200,9 +200,9 @@ QT_TRANSLATE_NOOP("nmn-core", ""
 "Unable to locate enough Obfuscation denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("nmn-core", ""
 "Unable to locate enough Obfuscation non-denominated funds for this "
-"transaction that are not equal 10000 NMN."),
+"transaction that are not equal 1000 NMN."),
 QT_TRANSLATE_NOOP("nmn-core", ""
-"Unable to locate enough funds for this transaction that are not equal 10000 "
+"Unable to locate enough funds for this transaction that are not equal 1000 "
 "NMN."),
 QT_TRANSLATE_NOOP("nmn-core", ""
 "Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: "
