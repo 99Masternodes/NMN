@@ -1880,35 +1880,57 @@ int64_t GetBlockValue(int nHeight)
     if(chainActive.Tip()->nMoneySupply > Params().MaxMoneySupply() )
         return 0.0001 * COIN;
 
-    if (nHeight == 0) {
-        nSubsidy = 60001 * COIN;
-    } else if (nHeight < 86400 && nHeight > 0) {
-        nSubsidy = 250 * COIN;
-    } else if (nHeight < (Params().NetworkID() == CBaseChainParams::TESTNET ? 145000 : 151200) && nHeight >= 86400) {
-        nSubsidy = 225 * COIN;
-    } else if (nHeight <= Params().LAST_POW_BLOCK() && nHeight >= 151200) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 302399 && nHeight > Params().LAST_POW_BLOCK()) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 345599 && nHeight >= 302400) {
-        nSubsidy = 40.5 * COIN;
-    } else if (nHeight <= 388799 && nHeight >= 345600) {
-        nSubsidy = 36 * COIN;
-    } else if (nHeight <= 431999 && nHeight >= 388800) {
-        nSubsidy = 31.5 * COIN;
-    } else if (nHeight <= 475199 && nHeight >= 432000) {
-        nSubsidy = 27 * COIN;
-    } else if (nHeight <= 518399 && nHeight >= 475200) {
-        nSubsidy = 22.5 * COIN;
-    } else if (nHeight <= 561599 && nHeight >= 518400) {
-        nSubsidy = 18 * COIN;
-    } else if (nHeight <= 604799 && nHeight >= 561600) {
-        nSubsidy = 13.5 * COIN;
-    } else if (nHeight <= 647999 && nHeight >= 604800) {
-        nSubsidy = 9 * COIN;
-    } else if (nHeight < Params().Zerocoin_Block_V2_Start()) {
+
+    if (nHeight < 100 ) {
+        nSubsidy = 2100 * COIN;
+    } else if (nHeight <= 100 && nHeight >= 1000) {
+        nSubsidy = 0.5 * COIN;
+    } else if (nHeight <= 1000 && nHeight >= 5000) {
+        nSubsidy = 0.75 * COIN;
+    } else if (nHeight <= 5000 && nHeight >= 10000) {
+        nSubsidy = 1 * COIN;
+    } else if (nHeight <= 10000 && nHeight >= 15000) {
+        nSubsidy = 1.5 * COIN;
+    } else if (nHeight <= 15000 && nHeight >= 20000) {
+        nSubsidy = 2 * COIN;
+    } else if (nHeight <= 20000 && nHeight >= 25000) {
+        nSubsidy = 2.5 * COIN;
+    } else if (nHeight <= 25000 && nHeight >= 30000) {
+        nSubsidy = 3.75 * COIN;
+    } else if (nHeight <= 30000 && nHeight >= 40000) {
         nSubsidy = 4.5 * COIN;
-    } else {
+    } else if (nHeight <= 40000 && nHeight >= 50000) {
+        nSubsidy = 5.5 * COIN;
+    } else if (nHeight <= 50000 && nHeight >= 60000) {
+        nSubsidy = 6.5 * COIN;
+    } else if (nHeight <= 60000 && nHeight >= 70000) {
+        nSubsidy = 7.75 * COIN;
+    } else if (nHeight <= 70000 && nHeight >= 80000) {
+        nSubsidy = 8.75 * COIN;
+    } else if (nHeight <= 80000 && nHeight >= 90000) {
+        nSubsidy = 9.5 * COIN;
+    } else if (nHeight <= 90000 && nHeight >= 100000) {
+        nSubsidy = 9.25 * COIN;
+    } else if (nHeight <= 100000 && nHeight >= 110000) {
+        nSubsidy = 9 * COIN;
+    } else if (nHeight <= 110000 && nHeight >= 120000) {
+        nSubsidy = 8.75 * COIN;
+    } else if (nHeight <= 120000 && nHeight >= 130000) {
+        nSubsidy = 8.5 * COIN;
+    } else if (nHeight <= 130000 && nHeight >= 140000) {
+        nSubsidy = 8 * COIN;
+    } else if (nHeight <= 140000 && nHeight >= 150000) {
+        nSubsidy = 7.5 * COIN;
+    } else if (nHeight <= 150000 && nHeight >= 160000) {
+        nSubsidy = 7 * COIN;
+    } else if (nHeight <= 160000 && nHeight >= 170000) {
+        nSubsidy = 6 * COIN;
+    } else if (nHeight <= 170000 && nHeight >= 180000) {
+        nSubsidy = 5.75 * COIN;
+    } else if (nHeight <= 180000 && nHeight >= 190000) {
+        nSubsidy = 5.5 * COIN;
+    }
+     else {
         nSubsidy = 5 * COIN;
     }
     return nSubsidy;
@@ -1918,7 +1940,7 @@ int64_t GetBlockValue(int nHeight)
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount, bool isZNMNStake)
 {
     int64_t ret = 0;
-    ret = blockValue / (100 / 30);
+    ret = blockValue * 0.8;
     return ret;
 }
 
