@@ -83,7 +83,7 @@ public:
 
     uint256 GetHash()
     {
-        uint256 n = HashQuark(BEGIN(nSporkID), END(nTimeSigned));
+        uint256 n = HashX11(BEGIN(nSporkID), END(nTimeSigned));
         return n;
     }
 
