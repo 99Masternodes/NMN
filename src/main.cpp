@@ -80,7 +80,7 @@ bool fVerifyingBlocks = false;
 unsigned int nCoinCacheSize = 5000;
 bool fAlerts = DEFAULT_ALERTS;
 
-unsigned int nStakeMinAge = 5 * 60;
+unsigned int nStakeMinAge = 60 * 60;
 int64_t nReserveBalance = 0;
 
 /** Fees smaller than this (in uNMN) are considered zero fee (for relaying and mining)
@@ -3825,21 +3825,21 @@ bool FindUndoPos(CValidationState& state, int nFile, CDiskBlockPos& pos, unsigne
 
 bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, bool fCheckPOW)
 {
-    // Check proof of work matches claimed amount
-    if (fCheckPOW && !CheckProofOfWork(block.GetHash(), block.nBits))
+    // Check proof of work matches claimed amount 
+    if (chainActive.Height() < Params().LAST_POW_BLOCK() && fCheckPOW && !CheckProofOfWork(block.GetHash(), block.nBits))
         return state.DoS(50, error("CheckBlockHeader() : proof of work failed"),
             REJECT_INVALID, "high-hash");
 
     // Version 4 header must be used after Params().Zerocoin_StartHeight(). And never before.
 
 
-    if (chainActive.Height() >= Params().Zerocoin_StartHeight()) {
+    if (block.GetBlockTime() > Params().Zerocoin_StartTime()) {
         if(block.nVersion < Params().Zerocoin_HeaderVersion() && Params().NetworkID() != CBaseChainParams::REGTEST)
-            return state.DoS(50, error("CheckBlockHeader() : block version must be above 4 after ZerocoinStartHeight"),
+            return state.DoS(50, error("CheckBlockHeader() : block version must be above 4 after ZerocoinStartHeight %d  ver = %d",chainActive.Height(), block.nVersion),
             REJECT_INVALID, "block-version");
     } else {
         if (block.nVersion >= Params().Zerocoin_HeaderVersion())
-            return state.DoS(50, error("CheckBlockHeader() : block version must be below 4 before ZerocoinStartHeight"),
+            return state.DoS(50, error("CheckBlockHeader() : block version must be below 4 before ZerocoinStartHeight %d  ver = %d",chainActive.Height(), block.nVersion ),
             REJECT_INVALID, "block-version");
     }
 
@@ -3962,7 +3962,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
     }
 
     // Check transactions
-    bool fZerocoinActive = chainActive.Height() >= Params().Zerocoin_StartHeight();
+    bool fZerocoinActive = block.GetBlockTime() > Params().Zerocoin_StartTime();
     vector<CBigNum> vBlockSerials;
     for (const CTransaction& tx : block.vtx) {
         if (!CheckTransaction(tx, fZerocoinActive, chainActive.Height() + 1 >= Params().Zerocoin_Block_EnforceSerialRange(), state))
@@ -4555,7 +4555,8 @@ bool ProcessNewBlock(CValidationState& state, CNode* pfrom, CBlock* pblock, CDis
 {
     // Preliminary checks
     int64_t nStartTime = GetTimeMillis();
-    bool checked = CheckBlock(*pblock, state);
+    
+    bool checked = CheckBlock(*pblock, state, pblock->IsProofOfWork());
 
     int nMints = 0;
     int nSpends = 0;

@@ -151,7 +151,7 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 5 /* 15 * 60*/; // NMN: 15 minute
         nTargetSpacing = 1 /* 60*/;  // NMN: 1 minute
-        nMaturity = 5;
+        nMaturity = 6;
         nMasternodeCountDrift = 20;
         nMasternodeCollateral = 1000;
         nMaxMoneyOut = 21000000 * COIN;
@@ -161,12 +161,13 @@ public:
         /** Height or Time Based Activations **/
         nLastPOWBlock = 1000;
         nModifierUpdateBlock = 1;
-        nZerocoinStartHeight = 1005;
+        nZerocoinStartHeight = 1015;
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
-        nBlockEnforceInvalidUTXO = 1005; //Start enforcing the invalid UTXO's
+        nBlockEnforceInvalidUTXO = 1015; //Start enforcing the invalid UTXO's
         nInvalidAmountFiltered = 0 * COIN; //Amount of invalid coins filtered through exchanges, that should be considered valid
-        nBlockZerocoinV2 = 1005; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
-        
+        nBlockZerocoinV2 = 1025; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
+        nZerocoinStartTime = 1553266200;
+
         const char* pszTimestamp = "U.S. News & World Report Jan 28 2016 With His Absence, Trump Dominates Another Debate";
         CMutableTransaction txNew;
         txNew.vin.resize(1);

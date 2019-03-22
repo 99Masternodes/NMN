@@ -116,6 +116,7 @@ public:
     int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
     int LAST_POW_BLOCK() const { return nLastPOWBlock; }
     int Zerocoin_StartHeight() const { return nZerocoinStartHeight; }
+    int Zerocoin_StartTime() const { return nZerocoinStartTime; }
     int Zerocoin_Block_EnforceSerialRange() const { return nBlockEnforceSerialRange; }
     int Block_Enforce_Invalid() const { return nBlockEnforceInvalidUTXO; }
     int Zerocoin_Block_V2_Start() const { return nBlockZerocoinV2; }
@@ -172,6 +173,7 @@ protected:
     int nZerocoinHeaderVersion;
     int64_t nBudget_Fee_Confirmations;
     int nZerocoinStartHeight;
+    int nZerocoinStartTime;
     int nZerocoinRequiredStakeDepth;
 
     int nBlockEnforceSerialRange;
