@@ -101,7 +101,7 @@ void MineGenesis(CBlock genesis)
     printf("Searching for genesis block...\n");
     // This will figure out a valid hash and Nonce if you're
     // creating a different genesis block:
-    uint256 hashTarget = ~uint256(0) >> 20;
+    uint256 hashTarget = ~uint256(0) >> 10;
     uint256 thash;
     while(true)
     {
@@ -138,20 +138,20 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x90;
-        pchMessageStart[1] = 0xb4;
-        pchMessageStart[2] = 0xff;
-        pchMessageStart[3] = 0xe8;
+        pchMessageStart[0] = 0x92;
+        pchMessageStart[1] = 0xb5;
+        pchMessageStart[2] = 0xfe;
+        pchMessageStart[3] = 0xe7;
         vAlertPubKey = ParseHex("0000098d3ba6ba6e7423fa5cbd6a89e0a9a5348f88d332b44a5cb1a8b7ed2c1eaa335fc8dc4f012cb8241cc0bdafd6ca70c5f5448916e4e6f511bcd746ed57dc50");
         nDefaultPort = 15299;
-        bnProofOfWorkLimit = ~uint256(0) >> 20;
+        bnProofOfWorkLimit = ~uint256(0) >> 10;
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 8100; // 75%
         nRejectBlockOutdatedMajority = 10260; // 95%
         nToCheckBlockUpgradeMajority = 10800; // Approximate expected amount of blocks in 7 days (1440*7.5)
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60; // NMN: 1 day
-        nTargetSpacing = 1 * 60;  // NMN: 1 minute
+        nTargetTimespan = 5;//1 * 60; // NMN: 1 day
+        nTargetSpacing = 1;//1 * 60;  // NMN: 1 minute
         nMaturity = 140;
         nMasternodeCountDrift = 20;
         nMasternodeCollateral = 1000;
@@ -160,14 +160,14 @@ public:
 
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 150;
+        nLastPOWBlock = 1000;
         nModifierUpdateBlock = 1;
-        nZerocoinStartHeight = 160;
+        nZerocoinStartHeight = 1250;
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
-        nBlockEnforceInvalidUTXO = 160; //Start enforcing the invalid UTXO's
+        nBlockEnforceInvalidUTXO = 1350; //Start enforcing the invalid UTXO's
         nInvalidAmountFiltered = 0 * COIN; //Amount of invalid coins filtered through exchanges, that should be considered valid
         nBlockZerocoinV2 = 999999999; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
-        nZerocoinStartTime = 1554671352;
+        nZerocoinStartTime = 1554739200;
 
         const char* pszTimestamp = "Where not even graves are safe";
         CMutableTransaction txNew;
@@ -180,13 +180,13 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1554657352;
+        genesis.nTime = 1554732136;
         genesis.nBits = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce = 2334005;
+        genesis.nNonce = 2375;
 
         //MineGenesis(genesis);
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("00000d17e17cf522dde3cd1b5f1ec7d16477e7eacc163d53309becfce0ab5031"));
+        assert(hashGenesisBlock == uint256("000c88188cfe9724d09a48199dc69c0a10bbe16da7f9b75728e9d4190d5971cb"));
         assert(genesis.hashMerkleRoot == uint256("eb587ed2ddbcfba9799584b772cb7d097674ed289c7e5e6370290a958b20f29f"));
 
 
@@ -273,11 +273,12 @@ public:
         nBlockZerocoinV2 = 444020; //!> The block that zerocoin v2 becomes active
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1554657352;
-        genesis.nNonce = 2334005;
+        genesis.nTime = 1554732136;
+        genesis.nNonce = 2375;
+
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("00000d17e17cf522dde3cd1b5f1ec7d16477e7eacc163d53309becfce0ab5031"));
+        assert(hashGenesisBlock == uint256("000c88188cfe9724d09a48199dc69c0a10bbe16da7f9b75728e9d4190d5971cb"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -347,11 +348,12 @@ public:
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
 
         //! Modify the regtest genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1554657352;
-        genesis.nNonce = 2334005;
+        genesis.nTime = 1554732136;
+        genesis.nNonce = 2375;
+
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("00000d17e17cf522dde3cd1b5f1ec7d16477e7eacc163d53309becfce0ab5031"));
+        assert(hashGenesisBlock == uint256("000c88188cfe9724d09a48199dc69c0a10bbe16da7f9b75728e9d4190d5971cb"));
         //assert(hashGenesisBlock == uint256("0x4f023a2120d9127b21bbad01724fdb79b519f593f2a85b60d3d79160ec5f29df"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
