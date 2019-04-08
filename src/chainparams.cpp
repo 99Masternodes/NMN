@@ -167,7 +167,7 @@ public:
         nBlockEnforceInvalidUTXO = 1350; //Start enforcing the invalid UTXO's
         nInvalidAmountFiltered = 0 * COIN; //Amount of invalid coins filtered through exchanges, that should be considered valid
         nBlockZerocoinV2 = 999999999; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
-        nZerocoinStartTime = 1554739200;
+        nZerocoinStartTime = 1554759505;
 
         const char* pszTimestamp = "Where not even graves are safe";
         CMutableTransaction txNew;

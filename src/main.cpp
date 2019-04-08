@@ -1884,51 +1884,51 @@ int64_t GetBlockValue(int nHeight)
 
     if (nHeight < 100 ) {
         nSubsidy = 2100 * COIN;
-   } else if (nHeight >= 100 && nHeight <= 1000) {
+   } else if (nHeight >= 100 && nHeight <= 999) {
         nSubsidy = 0.5 * COIN;
-    } else if (nHeight >= 1000 && nHeight <= 5000) {
+    } else if (nHeight >= 1000 && nHeight <= 4999) {
         nSubsidy = 0.75 * COIN;
-    } else if (nHeight >= 5000 && nHeight <= 10000) {
+    } else if (nHeight >= 5000 && nHeight <= 9999) {
         nSubsidy = 1 * COIN;
-    } else if (nHeight >= 10000 && nHeight <= 15000) {
+    } else if (nHeight >= 10000 && nHeight <= 14999) {
         nSubsidy = 1.5 * COIN;
-    } else if (nHeight >= 15000 && nHeight <= 20000) {
+    } else if (nHeight >= 15000 && nHeight <= 19999) {
         nSubsidy = 2 * COIN;
-    } else if (nHeight >= 20000 && nHeight <= 25000) {
+    } else if (nHeight >= 20000 && nHeight <= 24999) {
         nSubsidy = 2.5 * COIN;
-    } else if (nHeight >= 25000 && nHeight <= 30000) {
+    } else if (nHeight >= 25000 && nHeight <= 29999) {
         nSubsidy = 3.75 * COIN;
-    } else if (nHeight >= 30000 && nHeight <= 40000) {
+    } else if (nHeight >= 30000 && nHeight <= 39999) {
         nSubsidy = 4.5 * COIN;
-    } else if (nHeight >= 40000 && nHeight <= 50000) {
+    } else if (nHeight >= 40000 && nHeight <= 49999) {
         nSubsidy = 5.5 * COIN;
-    } else if (nHeight >= 50000 && nHeight <= 60000) {
+    } else if (nHeight >= 50000 && nHeight <= 59999) {
         nSubsidy = 6.5 * COIN;
-    } else if (nHeight >= 60000 && nHeight <= 70000) {
+    } else if (nHeight >= 60000 && nHeight <= 69999) {
         nSubsidy = 7.75 * COIN;
-    } else if (nHeight >= 70000 && nHeight <= 80000) {
+    } else if (nHeight >= 70000 && nHeight <= 79999) {
         nSubsidy = 8.75 * COIN;
-    } else if (nHeight >= 80000 && nHeight <= 90000) {
+    } else if (nHeight >= 80000 && nHeight <= 89999) {
         nSubsidy = 9.5 * COIN;
-    } else if (nHeight >= 90000 && nHeight <= 100000) {
+    } else if (nHeight >= 90000 && nHeight <= 99999) {
         nSubsidy = 9.25 * COIN;
-    } else if (nHeight >= 100000 && nHeight <= 110000) {
+    } else if (nHeight >= 100000 && nHeight <= 109999) {
         nSubsidy = 9 * COIN;
-    } else if (nHeight >= 110000 && nHeight <= 120000) {
+    } else if (nHeight >= 110000 && nHeight <= 119999) {
         nSubsidy = 8.75 * COIN;
-    } else if (nHeight >= 120000 && nHeight <= 130000) {
+    } else if (nHeight >= 120000 && nHeight <= 129999) {
         nSubsidy = 8.5 * COIN;
-    } else if (nHeight >= 130000 && nHeight <= 140000) {
+    } else if (nHeight >= 130000 && nHeight <= 139999) {
         nSubsidy = 8 * COIN;
-    } else if (nHeight >= 140000 && nHeight <= 150000) {
+    } else if (nHeight >= 140000 && nHeight <= 149999) {
         nSubsidy = 7.5 * COIN;
-    } else if (nHeight >= 150000 && nHeight <= 160000) {
+    } else if (nHeight >= 150000 && nHeight <= 159999) {
         nSubsidy = 7 * COIN;
-    } else if (nHeight >= 160000 && nHeight <= 170000) {
+    } else if (nHeight >= 160000 && nHeight <= 169999) {
         nSubsidy = 6 * COIN;
-    } else if (nHeight >= 170000 && nHeight <= 180000) {
+    } else if (nHeight >= 170000 && nHeight <= 179999) {
         nSubsidy = 5.75 * COIN;
-    } else if (nHeight >= 180000 && nHeight <= 190000) {
+    } else if (nHeight >= 180000 && nHeight <= 189999) {
         nSubsidy = 5.5 * COIN;
     } else if (nHeight >= 190000 && nHeight <= 200000) {
         nSubsidy = 5.25 * COIN;
@@ -1942,9 +1942,8 @@ int64_t GetBlockValue(int nHeight)
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount, bool isZNMNStake)
 {
-    int64_t ret = 0;
-    ret = blockValue * 0.8;
-    return ret;
+
+    return blockValue * 0.8;
 }
 
 bool IsInitialBlockDownload()
@@ -3836,7 +3835,7 @@ bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, bool f
     // Version 4 header must be used after Params().Zerocoin_StartHeight(). And never before.
 
 
-    if (block.GetBlockTime() > Params().Zerocoin_StartTime()) {
+   /* if (block.GetBlockTime() > Params().Zerocoin_StartTime()) {
         if(block.nVersion < Params().Zerocoin_HeaderVersion() && Params().NetworkID() != CBaseChainParams::REGTEST)
             return state.DoS(50, error("CheckBlockHeader() : block version must be above 4 after ZerocoinStartHeight %d  ver = %d",chainActive.Height(), block.nVersion),
             REJECT_INVALID, "block-version");
@@ -3845,7 +3844,7 @@ bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, bool f
             return state.DoS(50, error("CheckBlockHeader() : block version must be below 4 before ZerocoinStartHeight %d  ver = %d",chainActive.Height(), block.nVersion ),
             REJECT_INVALID, "block-version");
     }
-
+*/
     return true;
 }
 
@@ -3965,7 +3964,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
     }
 
     // Check transactions
-    bool fZerocoinActive = block.GetBlockTime() > Params().Zerocoin_StartTime();
+    bool fZerocoinActive = block.GetBlockTime() > Params().Zerocoin_StartTime() && chainActive.Height() > Params().Zerocoin_StartHeight();
     vector<CBigNum> vBlockSerials;
     for (const CTransaction& tx : block.vtx) {
         if (!CheckTransaction(tx, fZerocoinActive, chainActive.Height() + 1 >= Params().Zerocoin_Block_EnforceSerialRange(), state))
