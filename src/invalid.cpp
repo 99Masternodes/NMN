@@ -1,4 +1,5 @@
-// Copyright (c) 2018 The NMN developers
+// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019 The NMN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -87,4 +88,3 @@ namespace invalid_out
         return static_cast<bool>(setInvalidSerials.count(bnSerial));
     }
 }
-

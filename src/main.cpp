@@ -1,7 +1,8 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The NMN developers
+// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019 The NMN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -3827,7 +3828,7 @@ bool FindUndoPos(CValidationState& state, int nFile, CDiskBlockPos& pos, unsigne
 
 bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, bool fCheckPOW)
 {
-    // Check proof of work matches claimed amount 
+    // Check proof of work matches claimed amount
     if (chainActive.Height() < Params().LAST_POW_BLOCK() && fCheckPOW && !CheckProofOfWork(block.GetHash(), block.nBits))
         return state.DoS(50, error("CheckBlockHeader() : proof of work failed"),
             REJECT_INVALID, "high-hash");
@@ -4557,7 +4558,7 @@ bool ProcessNewBlock(CValidationState& state, CNode* pfrom, CBlock* pblock, CDis
 {
     // Preliminary checks
     int64_t nStartTime = GetTimeMillis();
-    
+
     bool checked = CheckBlock(*pblock, state, pblock->IsProofOfWork());
 
     int nMints = 0;

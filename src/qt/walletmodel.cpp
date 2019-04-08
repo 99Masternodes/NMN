@@ -1,6 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The NMN developers
+// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019 The NMN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -164,7 +165,7 @@ void WalletModel::pollBalanceChanged()
 void WalletModel::emitBalanceChanged()
 {
     // Force update of UI elements even when no values have changed
-    emit balanceChanged(cachedBalance, cachedUnconfirmedBalance, cachedImmatureBalance, 
+    emit balanceChanged(cachedBalance, cachedUnconfirmedBalance, cachedImmatureBalance,
                         cachedZerocoinBalance, cachedUnconfirmedZerocoinBalance, cachedImmatureZerocoinBalance,
                         cachedWatchOnlyBalance, cachedWatchUnconfBalance, cachedWatchImmatureBalance);
 }
@@ -203,7 +204,7 @@ void WalletModel::checkBalanceChanged()
         cachedWatchOnlyBalance = newWatchOnlyBalance;
         cachedWatchUnconfBalance = newWatchUnconfBalance;
         cachedWatchImmatureBalance = newWatchImmatureBalance;
-        emit balanceChanged(newBalance, newUnconfirmedBalance, newImmatureBalance, 
+        emit balanceChanged(newBalance, newUnconfirmedBalance, newImmatureBalance,
                             newZerocoinBalance, newUnconfirmedZerocoinBalance, newImmatureZerocoinBalance,
                             newWatchOnlyBalance, newWatchUnconfBalance, newWatchImmatureBalance);
     }

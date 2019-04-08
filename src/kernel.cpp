@@ -1,5 +1,6 @@
 // Copyright (c) 2012-2013 The PPCoin developers
-// Copyright (c) 2015-2018 The NMN developers
+// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019 The NMN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -255,7 +256,7 @@ bool GetKernelStakeModifier(uint256 hashBlockFrom, uint64_t& nStakeModifier, int
         nStakeModifier = pindexFrom->nStakeModifier;
         return true;
     }
-    int64_t nStakeModifierSelectionInterval = GetStakeModifierSelectionInterval();
+    int64_t nStakeModifierSelectionInterval = 1;//GetStakeModifierSelectionInterval();
     const CBlockIndex* pindex = pindexFrom;
     CBlockIndex* pindexNext = chainActive[pindexFrom->nHeight + 1];
 

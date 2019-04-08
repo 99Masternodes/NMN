@@ -1,6 +1,7 @@
 // Copyright (c) 2012 Pieter Wuille
 // Copyright (c) 2012-2014 The Bitcoin developers
-// Copyright (c) 2017 The NMN developers
+// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019 The NMN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,8 +20,8 @@
 #include <stdint.h>
 #include <vector>
 
-/** 
- * Extended statistics about a CAddress 
+/**
+ * Extended statistics about a CAddress
  */
 class CAddrInfo : public CAddress
 {
@@ -165,8 +166,8 @@ public:
 //! the maximum number of nodes to return in a getaddr call
 #define ADDRMAN_GETADDR_MAX 2500
 
-/** 
- * Stochastical (IP) address manager 
+/**
+ * Stochastical (IP) address manager
  */
 class CAddrMan
 {

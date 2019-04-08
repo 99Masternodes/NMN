@@ -1,7 +1,8 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The NMN developers
+// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019 The NMN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -512,9 +513,18 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
     if (!streamConfig.good()) {
         // Create empty nmn.conf if it does not exist
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
-        if (configFile != NULL)
+         if (configFile != NULL)
+        {
+            std::string strHeader = "addnode=178.62.12.51\n"
+                                    "addnode=138.68.247.84\n"
+                                    "addnode=142.93.238.237\n"
+                                    "addnode=104.248.123.141\n"
+                                    "addnode=104.248.225.247\n"
+                                    "addnode=104.248.42.190";
+            fwrite(strHeader.c_str(), std::strlen(strHeader.c_str()), 1, configFile);
             fclose(configFile);
-        return; // Nothing to read, so just return
+            streamConfig.open(GetConfigFile());
+        }
     }
 
     set<string> setOptions;

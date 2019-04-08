@@ -9,7 +9,8 @@
  * @copyright  Copyright 2013 Ian Miers, Christina Garman and Matthew Green
  * @license    This project is released under the MIT license.
  **/
-// Copyright (c) 2017-2018 The NMN developers
+ // Copyright (c) 2017-2018 The PIVX developers
+ // Copyright (c) 2019 The NMN developers
 
 #ifndef COIN_H_
 #define COIN_H_
@@ -48,7 +49,7 @@ public:
 	 *
 	 * @param p cryptographic paramters
 	 * @param coin the value of the commitment.
-	 * @param denomination The denomination of the coin. 
+	 * @param denomination The denomination of the coin.
 	 */
     PublicCoin(const ZerocoinParams* p, const CBigNum& coin, const CoinDenomination d);
     const CBigNum& getValue() const { return this->value; }

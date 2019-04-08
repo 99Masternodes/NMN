@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2017 The NMN developers
+// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019 The NMN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -176,11 +177,11 @@ public:
 
     //! (memory only) Sequential id assigned to distinguish order in which blocks are received.
     uint32_t nSequenceId;
-    
+
     //! zerocoin specific fields
     std::map<libzerocoin::CoinDenomination, int64_t> mapZerocoinSupply;
     std::vector<libzerocoin::CoinDenomination> vMintDenominationsInBlock;
-    
+
     void SetNull()
     {
         phashBlock = NULL;
@@ -252,7 +253,7 @@ public:
             nStakeTime = 0;
         }
     }
-    
+
 
     CDiskBlockPos GetBlockPos() const
     {
@@ -374,7 +375,7 @@ public:
 
     /**
      * Returns true if there are nRequired or more blocks of minVersion or above
-     * in the last Params().ToCheckBlockUpgradeMajority() blocks, starting at pstart 
+     * in the last Params().ToCheckBlockUpgradeMajority() blocks, starting at pstart
      * and going backwards.
      */
     static bool IsSuperMajority(int minVersion, const CBlockIndex* pstart, unsigned int nRequired);

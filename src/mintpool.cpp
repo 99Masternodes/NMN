@@ -1,4 +1,5 @@
-// Copyright (c) 2017-2018 The NMN developers
+// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019 The NMN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -104,6 +105,3 @@ void CMintPool::Remove(const uint256& hashPubcoin)
     nCountLastRemoved = it->second;
     erase(it);
 }
-
-
-

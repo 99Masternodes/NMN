@@ -1,7 +1,8 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The NMN developers
+// Copyright (c) 2016-2018 The PIVX developers
+// Copyright (c) 2019 The NMN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -100,8 +101,8 @@ void MineGenesis(CBlock genesis)
     printf("Searching for genesis block...\n");
     // This will figure out a valid hash and Nonce if you're
     // creating a different genesis block:
-    uint256 hashTarget = ~uint256(0) >> 10;
-    uint256 thash; 
+    uint256 hashTarget = ~uint256(0) >> 20;
+    uint256 thash;
     while(true)
     {
         thash = genesis.GetHash();
@@ -143,32 +144,32 @@ public:
         pchMessageStart[3] = 0xe8;
         vAlertPubKey = ParseHex("0000098d3ba6ba6e7423fa5cbd6a89e0a9a5348f88d332b44a5cb1a8b7ed2c1eaa335fc8dc4f012cb8241cc0bdafd6ca70c5f5448916e4e6f511bcd746ed57dc50");
         nDefaultPort = 15299;
-        bnProofOfWorkLimit = ~uint256(0) >> 10;
+        bnProofOfWorkLimit = ~uint256(0) >> 20;
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 8100; // 75%
         nRejectBlockOutdatedMajority = 10260; // 95%
         nToCheckBlockUpgradeMajority = 10800; // Approximate expected amount of blocks in 7 days (1440*7.5)
         nMinerThreads = 0;
-        nTargetTimespan = 5 /* 15 * 60*/; // NMN: 15 minute
-        nTargetSpacing = 1 /* 60*/;  // NMN: 1 minute
-        nMaturity = 6;
+        nTargetTimespan = 1 * 60; // NMN: 1 day
+        nTargetSpacing = 1 * 60;  // NMN: 1 minute
+        nMaturity = 140;
         nMasternodeCountDrift = 20;
         nMasternodeCollateral = 1000;
         nMaxMoneyOut = 21000000 * COIN;
         nMaxMoneySupply = 21000000 * COIN;
-        
+
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 1000;
+        nLastPOWBlock = 150;
         nModifierUpdateBlock = 1;
-        nZerocoinStartHeight = 1015;
+        nZerocoinStartHeight = 160;
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
-        nBlockEnforceInvalidUTXO = 1015; //Start enforcing the invalid UTXO's
+        nBlockEnforceInvalidUTXO = 160; //Start enforcing the invalid UTXO's
         nInvalidAmountFiltered = 0 * COIN; //Amount of invalid coins filtered through exchanges, that should be considered valid
-        nBlockZerocoinV2 = 1025; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
-        nZerocoinStartTime = 1553266200;
+        nBlockZerocoinV2 = 999999999; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
+        nZerocoinStartTime = 1554671352;
 
-        const char* pszTimestamp = "U.S. News & World Report Jan 28 2016 With His Absence, Trump Dominates Another Debate";
+        const char* pszTimestamp = "Where not even graves are safe";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -179,20 +180,15 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1553168845;
+        genesis.nTime = 1554657352;
         genesis.nBits = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce = 687;
-    
+        genesis.nNonce = 2334005;
+
         //MineGenesis(genesis);
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("002b6e451ad4587f305c223a07df7fa933945646ac7a9f4a65088e8dcdce0c6e"));
-        assert(genesis.hashMerkleRoot == uint256("1b2ef6e2f28be914103a277377ae7729dcd125dfeb8bf97bd5964ba72b6dc39b"));
+        assert(hashGenesisBlock == uint256("00000d17e17cf522dde3cd1b5f1ec7d16477e7eacc163d53309becfce0ab5031"));
+        assert(genesis.hashMerkleRoot == uint256("eb587ed2ddbcfba9799584b772cb7d097674ed289c7e5e6370290a958b20f29f"));
 
-        /*vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "nmn.seed.fuzzbawls.pw"));     // Primary DNS Seeder from Fuzzbawls
-        vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "nmn.seed2.fuzzbawls.pw"));    // Secondary DNS Seeder from Fuzzbawls
-        vSeeds.push_back(CDNSSeedData("coin-server.com", "coin-server.com"));         // Single node address
-        vSeeds.push_back(CDNSSeedData("s3v3nh4cks.ddns.net", "s3v3nh4cks.ddns.net")); // Single node address
-        vSeeds.push_back(CDNSSeedData("178.254.23.111", "178.254.23.111"));           // Single node address*/
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 20);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 52);
@@ -277,11 +273,11 @@ public:
         nBlockZerocoinV2 = 444020; //!> The block that zerocoin v2 becomes active
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1553168845;
-        genesis.nNonce = 687;
-    
+        genesis.nTime = 1554657352;
+        genesis.nNonce = 2334005;
+
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("002b6e451ad4587f305c223a07df7fa933945646ac7a9f4a65088e8dcdce0c6e"));
+        assert(hashGenesisBlock == uint256("00000d17e17cf522dde3cd1b5f1ec7d16477e7eacc163d53309becfce0ab5031"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -351,11 +347,11 @@ public:
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
 
         //! Modify the regtest genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1553168845;
-        genesis.nNonce = 687;
-    
+        genesis.nTime = 1554657352;
+        genesis.nNonce = 2334005;
+
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("002b6e451ad4587f305c223a07df7fa933945646ac7a9f4a65088e8dcdce0c6e"));
+        assert(hashGenesisBlock == uint256("00000d17e17cf522dde3cd1b5f1ec7d16477e7eacc163d53309becfce0ab5031"));
         //assert(hashGenesisBlock == uint256("0x4f023a2120d9127b21bbad01724fdb79b519f593f2a85b60d3d79160ec5f29df"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.

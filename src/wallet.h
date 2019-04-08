@@ -1,7 +1,8 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The NMN developers
+// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019 The NMN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -536,7 +537,7 @@ public:
     std::set<CTxDestination> GetAccountAddresses(std::string strAccount) const;
 
     bool GetBudgetSystemCollateralTX(CWalletTx& tx, uint256 hash, bool useIX);
-    bool GetBudgetFinalizationCollateralTX(CWalletTx& tx, uint256 hash, bool useIX); // Only used for budget finalization 
+    bool GetBudgetFinalizationCollateralTX(CWalletTx& tx, uint256 hash, bool useIX); // Only used for budget finalization
 
     // get the Obfuscation chain depth for a given input
     int GetRealInputObfuscationRounds(CTxIn in, int rounds) const;

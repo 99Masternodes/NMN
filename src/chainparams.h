@@ -1,7 +1,8 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The NMN developers
+// Copyright (c) 2016-2018 The PIVX developers
+// Copyright (c) 2019 The NMN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -77,7 +78,7 @@ public:
     int COINBASE_MATURITY() const { return nMaturity; }
     CAmount MaxMoneyOut() const { return nMaxMoneyOut; }
     CAmount MaxMoneySupply() const { return nMaxMoneySupply; }
-    
+
     /** The masternode count that we will allow the see-saw reward payments to be off by */
     int MasternodeCountDrift() const { return nMasternodeCountDrift; }
     /** Make miner stop after a block is found. In RPC, don't return until nGenProcLimit blocks are generated */
@@ -141,7 +142,7 @@ protected:
     int nMasternodeCountDrift;
     int nMaturity;
     int nModifierUpdateBlock;
-    int nMasternodeCollateral; 
+    int nMasternodeCollateral;
     CAmount nMaxMoneyOut;
     CAmount nMaxMoneySupply;
     int nMinerThreads;

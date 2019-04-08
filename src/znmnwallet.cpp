@@ -1,4 +1,5 @@
-// Copyright (c) 2017-2018 The NMN developers
+// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019 The NMN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -328,7 +329,7 @@ bool CzNMNWallet::SetMintSeen(const CBigNum& bnValue, const int& nHeight, const 
 
     // Add to znmnTracker which also adds to database
     pwalletMain->znmnTracker->Add(dMint, true);
-    
+
     //Update the count if it is less than the mint's count
     if (nCountLastUsed < pMint.second) {
         CWalletDB walletdb(strWalletFile);
