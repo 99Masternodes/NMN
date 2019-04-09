@@ -138,10 +138,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x92;
-        pchMessageStart[1] = 0xb5;
-        pchMessageStart[2] = 0xfe;
-        pchMessageStart[3] = 0xe7;
+        pchMessageStart[0] = 0x91;
+        pchMessageStart[1] = 0xbf;
+        pchMessageStart[2] = 0xff;
+        pchMessageStart[3] = 0xe4;
         vAlertPubKey = ParseHex("0000098d3ba6ba6e7423fa5cbd6a89e0a9a5348f88d332b44a5cb1a8b7ed2c1eaa335fc8dc4f012cb8241cc0bdafd6ca70c5f5448916e4e6f511bcd746ed57dc50");
         nDefaultPort = 15299;
         bnProofOfWorkLimit = ~uint256(0) >> 10;
@@ -167,7 +167,7 @@ public:
         nBlockEnforceInvalidUTXO = 1350; //Start enforcing the invalid UTXO's
         nInvalidAmountFiltered = 0 * COIN; //Amount of invalid coins filtered through exchanges, that should be considered valid
         nBlockZerocoinV2 = 999999999; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
-        nZerocoinStartTime = 1554759505;
+        nZerocoinStartTime = 1554766813;
 
         const char* pszTimestamp = "Where not even graves are safe";
         CMutableTransaction txNew;
@@ -180,13 +180,13 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1554732136;
+        genesis.nTime = 1554765813;
         genesis.nBits = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce = 2375;
+        genesis.nNonce = 2672;
 
         //MineGenesis(genesis);
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("000c88188cfe9724d09a48199dc69c0a10bbe16da7f9b75728e9d4190d5971cb"));
+        assert(hashGenesisBlock == uint256("0037ee3f26e882f79344917bbbd6b78d063e07f0e1346535f21ba64dbaeec22a"));
         assert(genesis.hashMerkleRoot == uint256("eb587ed2ddbcfba9799584b772cb7d097674ed289c7e5e6370290a958b20f29f"));
 
 
