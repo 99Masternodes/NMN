@@ -24,4 +24,4 @@ The main focus of the 99Masternodes team is to provide services that promote cry
 
 ### Reward Distribution
 
-![Rewards](https://i.imgur.com/3UfJKNa.png)
+![Rewards](https://imgur.com/h82Rh79)
