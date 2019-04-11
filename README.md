@@ -1,59 +1,27 @@
 NMN Core integration/staging repository
 =====================================
 
-[![Build Status](https://travis-ci.org/99Masternodes/NMN.svg?branch=master)](https://travis-ci.org/99Masternodes/NMN) [![GitHub version](https://badge.fury.io/gh/NMN-Project%2FNMN.svg)](https://badge.fury.io/gh/NMN-Project%2FNMN)
+![Logo](src/qt/res/images/nmn_logo_horizontal.png)
 
-NMN is an open source crypto-currency focused on fast private transactions using the Zerocoin protocol, with low transaction fees & environmental footprint.  It utilizes the first ever anonymous proof of stake protocol, called zPoS, combined with regular PoS and masternodes for securing its network. zPoS incentivises using the privacy features available in NMN by granting a higher block reward for zPoS over regular PoS and masternodes. In practice NMN has between 4 to 10 times higher use of it's privacy features in comparison to other coins that combine public and private transactions. This is thanks to innovations like zPoS and integrating the Zerocoin protocol into light/mobile wallets, allowing for a complete and lightweight privacy protocol that can be used on the go. As well as security improvements like [deterministic generation of zNMN for easy backups.](https://www.reddit.com/r/nmn/comments/8gbjf7/how_to_use_deterministic_zerocoin_generation/)
-The goal of NMN is to achieve a decentralized sustainable crypto currency with near instant full-time private transactions, fair governance and community intelligence.
-- Anonymized transactions & consensus using the [_Zerocoin Protocol_](http://www.nmn.org/zNMN) and [zPoS](https://nmn.org/zpos/).
-- light/mobile wallet privacy using the [Zerocoin Light Node Protocol](https://nmn.org/wp-content/uploads/2018/11/Zerocoin_Light_Node_Protocol.pdf)
-- Fast transactions featuring guaranteed zero confirmation transactions, we call it _SwiftX_.
-- Decentralized blockchain voting utilizing Masternode technology to form a DAO. The blockchain will distribute monthly treasury funds based on successful proposals submitted by the community and voted on by the DAO.
+[![HitCount](http://hits.dwyl.io/99Masternodes/https://github.com/99Masternodes/NMN/.svg)](http://hits.dwyl.io/99Masternodes/https://github.com/99Masternodes/NMN/)
+<a href="https://discord.gg/Ezm2eNP"><img src="https://discordapp.com/api/guilds/551864235571937284/widget.png" alt="Discord server" /></a> <a href="https://twitter.com/intent/follow?screen_name=99masternodes"><img src="https://img.shields.io/twitter/follow/99masternodes.svg?style=social&logo=twitter" alt="follow on Twitter"></a>
+* [Website](https://99masternodes.com/)
+* [Shop](https://buy.99masternodes.com/)
+* [Block Explorer](http://explorer.99masternodes.com/)
+* [News Portal](https://media.99masternodes.com/)
+* [Twitter](https://twitter.com/99masternodes)
 
-More information at [nmn.org](http://www.nmn.org) Visit our ANN thread at [BitcoinTalk](http://www.bitcointalk.org/index.php?topic=1262920)
+The main focus of the 99Masternodes team is to provide services that promote cryptocurrency projects. We have extensive experience in such areas as attracting new users and investors, managing communities in social networks, consulting developers how to launch projects and optimize the associated costs. In addition to the direct involvement of the core members of the 99Promo team in the promotion of your project, we can even now employ about a dozen people, whom we known as well-proven form cooperation in many projects.
 
 ### Coin Specs
 <table>
-<tr><td>Algo</td><td>Quark</td></tr>
+<tr><td>Algo</td><td>X11</td></tr>
 <tr><td>Block Time</td><td>60 Seconds</td></tr>
 <tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
-<tr><td>Max Coin Supply (PoW Phase)</td><td>43,199,500 NMN</td></tr>
-<tr><td>Max Coin Supply (PoS Phase)</td><td>Infinite</td></tr>
-<tr><td>Premine</td><td>60,000 NMN*</td></tr>
+<tr><td>Max Coin Supply (PoS)</td><td>21 000 000 NMN</td></tr>
+<tr><td>Premine</td><td>1% - 210 000 NMN</td></tr>
 </table>
-
-*60,000 NMN Premine was burned in block [279917](http://www.presstab.pw/phpexplorer/NMN/block.php?blockhash=206d9cfe859798a0b0898ab00d7300be94de0f5469bb446cecb41c3e173a57e0)
 
 ### Reward Distribution
 
-<table>
-<th colspan=4>Genesis Block</th>
-<tr><th>Block Height</th><th>Reward Amount</th><th>Notes</th></tr>
-<tr><td>1</td><td>60,000 NMN</td><td>Initial Pre-mine, burnt in block <a href="http://www.presstab.pw/phpexplorer/NMN/block.php?blockhash=206d9cfe859798a0b0898ab00d7300be94de0f5469bb446cecb41c3e173a57e0">279917</a></td></tr>
-</table>
-
-### PoW Rewards Breakdown
-
-<table>
-<th>Block Height</th><th>Masternodes</th><th>Miner</th><th>Budget</th>
-<tr><td>2-43200</td><td>20% (50 NMN)</td><td>80% (200 NMN)</td><td>N/A</td></tr>
-<tr><td>43201-151200</td><td>20% (50 NMN)</td><td>70% (200 NMN)</td><td>10% (25 NMN)</td></tr>
-<tr><td>151201-259200</td><td>45% (22.5 NMN)</td><td>45% (22.5 NMN)</td><td>10% (5 NMN)</td></tr>
-</table>
-
-### PoS Rewards Breakdown
-
-<table>
-<th>Phase</th><th>Block Height</th><th>Reward</th><th>Masternodes & Stakers</th><th>Budget</th>
-<tr><td>Phase 0</td><td>259201-302399</td><td>50 NMN</td><td>90% (45 NMN)</td><td>10% (5 NMN)</td></tr>
-<tr><td>Phase 1</td><td>302400-345599</td><td>45 NMN</td><td>90% (40.5 NMN)</td><td>10% (4.5 NMN)</td></tr>
-<tr><td>Phase 2</td><td>345600-388799</td><td>40 NMN</td><td>90% (36 NMN)</td><td>10% (4 NMN)</td></tr>
-<tr><td>Phase 3</td><td>388800-431999</td><td>35 NMN</td><td>90% (31.5 NMN)</td><td>10% (3.5 NMN)</td></tr>
-<tr><td>Phase 4</td><td>432000-475199</td><td>30 NMN</td><td>90% (27 NMN)</td><td>10% (3 NMN)</td></tr>
-<tr><td>Phase 5</td><td>475200-518399</td><td>25 NMN</td><td>90% (22.5 NMN)</td><td>10% (2.5 NMN)</td></tr>
-<tr><td>Phase 6</td><td>518400-561599</td><td>20 NMN</td><td>90% (18 NMN)</td><td>10% (2 NMN)</td></tr>
-<tr><td>Phase 7</td><td>561600-604799</td><td>15 NMN</td><td>90% (13.5 NMN)</td><td>10% (1.5 NMN)</td></tr>
-<tr><td>Phase 8</td><td>604800-647999</td><td>10 NMN</td><td>90% (9 NMN)</td><td>10% (1 NMN)</td></tr>
-<tr><td>Phase 9</td><td>648000-1154203</td><td>5 NMN</td><td>90% (4.5 NMN)</td><td>10% (0.5 NMN)</td></tr>
-<tr><td>Phase X</td><td>1154203-∞</td><td>6 NMN</td><td>84% (5 NMN/zNMN)</td><td>16% (1 NMN)</td></tr>
-</table>
+![Rewards](https://i.imgur.com/h82Rh79.jpg)
