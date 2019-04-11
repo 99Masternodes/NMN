@@ -3049,7 +3049,7 @@ bool CWallet::CreateCoinStake(
 
             // Calculate reward
             CAmount nReward;
-            nReward = GetBlockValue(chainActive.Height() + 1);
+            nReward = GetBlockValue(chainActive.Height());
             nCredit += nReward;
 
             // Create the output transaction(s)
