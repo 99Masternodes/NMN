@@ -34,7 +34,7 @@ private:
     /// Create Masternode broadcast, needs to be relayed manually after that
     bool CreateBroadcast(CTxIn vin, CService service, CKey key, CPubKey pubKey, CKey keyMasternode, CPubKey pubKeyMasternode, std::string& errorMessage, CMasternodeBroadcast &mnb);
 
-    /// Get nMasternodeCollateral NMN input that can be used for the Masternode
+    /// Get Masternode Collateral NMN input that can be used for the Masternode
     bool GetMasterNodeVin(CTxIn& vin, CPubKey& pubkey, CKey& secretKey, std::string strTxHash, std::string strOutputIndex);
     bool GetVinFromOutput(COutput out, CTxIn& vin, CPubKey& pubkey, CKey& secretKey);
 
