@@ -154,6 +154,7 @@ public:
         nTargetSpacing = 1;//1 * 60;  // NMN: 1 minute
         nMaturity = 140;
         nMasternodeCountDrift = 20;
+        nMasternodeCollateral = 1000;
         nMaxMoneyOut = 21000000 * COIN;
         nMaxMoneySupply = 21000000 * COIN;
 

@@ -13,7 +13,7 @@
 #include "spork.h"
 
 //
-// Bootup the Masternode, look for a Masternode Collateral NMN input and register on the network
+// Bootup the Masternode, look for a nMasternodeCollateral NMN input and register on the network
 //
 void CActiveMasternode::ManageStatus()
 {
@@ -457,7 +457,7 @@ vector<COutput> CActiveMasternode::SelectCoinsMasternode()
 
     // Filter
     BOOST_FOREACH (const COutput& out, vCoins) {
-        if (out.tx->vout[out.i].nValue == GetMNCollateral(chainActive.Height()) * COIN) { //exactly
+        if (out.tx->vout[out.i].nValue == Params().MasternodeCollateral() * COIN) { //exactly
             filteredCoins.push_back(out);
         }
     }

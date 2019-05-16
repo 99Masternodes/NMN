@@ -94,6 +94,7 @@ public:
     int PoolMaxTransactions() const { return nPoolMaxTransactions; }
 
     /** Spork key and Masternode Handling **/
+    int MasternodeCollateral() const { return nMasternodeCollateral; }
     std::string SporkKey() const { return strSporkKey; }
     std::string ObfuscationPoolDummyAddress() const { return strObfuscationPoolDummyAddress; }
     int64_t StartMasternodePayments() const { return nStartMasternodePayments; }
@@ -141,6 +142,7 @@ protected:
     int nMasternodeCountDrift;
     int nMaturity;
     int nModifierUpdateBlock;
+    int nMasternodeCollateral;
     CAmount nMaxMoneyOut;
     CAmount nMaxMoneySupply;
     int nMinerThreads;
