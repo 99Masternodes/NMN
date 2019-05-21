@@ -1936,8 +1936,22 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 17 * COIN;
     } else if (nHeight >= 120000 && nHeight <= 124999) {
         nSubsidy = 16 * COIN;
-    } else {
+    } else if (nHeight >= 125000 && nHeight <= 139999) {
         nSubsidy = 15 * COIN;
+    } else if (nHeight >= 140000 && nHeight <= 154999) {
+        nSubsidy = 14 * COIN;
+    } else if (nHeight >= 155000 && nHeight <= 194999) {
+        nSubsidy = 20 * COIN;
+    } else if (nHeight >= 195000 && nHeight <= 249999) {
+        nSubsidy = 18 * COIN;
+    } else if (nHeight >= 250000 && nHeight <= 299999) {
+        nSubsidy = 16 * COIN;
+    } else if (nHeight >= 300000 && nHeight <= 399999) {
+        nSubsidy = 14 * COIN;
+    } else if (nHeight >= 400000 && nHeight <= 499999) {
+        nSubsidy = 12 * COIN;
+    } else {
+        nSubsidy = 10 * COIN;
     }
     return nSubsidy;
 }
@@ -6565,7 +6579,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 //       it was the one which was commented out
 int ActiveProtocol()
 {
-    // SPORK_14 is used for 70913 (v3.1.0+)
+    // SPORK_14 is used for 70915 (v1.1.0+)
     if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
             return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
 
